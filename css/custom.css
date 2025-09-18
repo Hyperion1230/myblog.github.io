@@ -1,9 +1,8 @@
 /* 修改导航栏背景色 */
 .kratos-topnav {
-  background: #266baf99 !important;
-  display: flex;
+  background: #085c0999 !important;
   justify-content: center;
-  height: 30px;
+  height: 80px;
 
 }
 
@@ -12,37 +11,22 @@
   display: flex;
   justify-content: center;
 }
-/* 修改导航文字颜色 */
-.sf-menu a:hover {
-  color: #020101 !important;
-}
-
 
 
 /* 悬停高亮效果 */
 /* 移除导航菜单悬停效果 */
 /* 移除导航菜单悬停效果 */
-.sf-menu>li:hover>a {
-  /* background: none !important; /* 移除背景色 */
-  /* color: #ffcc00 !important; 改变文字颜色，您可以根据需要调整颜色值 */ 
-  text-decoration: underline; /* 添加下划线效果 */
-}
 
 /* 调整导航字体大小和间距 */
 #kratos-menu-wrap .sf-menu a {
   color: #ffffff;
   /* text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000; */
-  margin: 0 10px;
+  margin: 10px 10px;
   font-size: 20px;
 }
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 #kratos-menu-wrap .sf-menu a {
-  border: 2px solid #ffcc00;
-  background-color: #ffcc0099;
+  border: 2px solid #090909;
+  background-color: #d4d4d499;
   border-radius: 15px;
 }
 #kratos-desktop-topnav .sf-menu>li>ul.sub-menu a {
