@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Kratos : Rebirth</title>
+  <title>Hammerbrother的博客</title>
   
-  <subtitle>一个可爱而现代的 Hexo 主题</subtitle>
+  <subtitle>欢迎一起交流进步</subtitle>
   <link href="https://hyperion1230.github.io/myblog.github.io/atom.xml" rel="self"/>
   
   <link href="https://hyperion1230.github.io/myblog.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://hyperion1230.github.io/myblog.github.io/</id>
   
   <author>
-    <name>All contributors</name>
+    <name>Hammerbrother</name>
     
   </author>
   
