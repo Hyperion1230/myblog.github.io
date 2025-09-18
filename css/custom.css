@@ -32,3 +32,9 @@
 #kratos-desktop-topnav .sf-menu>li>ul.sub-menu a {
     color: #000000;
 }
+.kratos-entry-footer .footer-tag a {
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 15px;
+
+}
