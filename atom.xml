@@ -3,11 +3,11 @@
   <title>Hammerbrother的博客</title>
   
   <subtitle>欢迎一起交流进步</subtitle>
-  <link href="https://hyperion1230.github.io/atom.xml" rel="self"/>
+  <link href="https://hyperion1230.github.io/myblog.github.io/atom.xml" rel="self"/>
   
-  <link href="https://hyperion1230.github.io/"/>
+  <link href="https://hyperion1230.github.io/myblog.github.io/"/>
   <updated>2025-09-19T01:18:58.166Z</updated>
-  <id>https://hyperion1230.github.io/</id>
+  <id>https://hyperion1230.github.io/myblog.github.io/</id>
   
   <author>
     <name>Hammerbrother</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>记录一下使用kratos模板创建个人博客</title>
-    <link href="https://hyperion1230.github.io/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8kratos%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://hyperion1230.github.io/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8kratos%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
+    <link href="https://hyperion1230.github.io/myblog.github.io/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8kratos%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://hyperion1230.github.io/myblog.github.io/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8kratos%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2025-09-18T09:03:28.000Z</published>
     <updated>2025-09-19T01:18:58.166Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="记录一下使用kratos模板创建个人博客"><a href="#记录一下使用kratos模板创建个人博客" class="headerlink" title="记录一下使用kratos模板创建个人博客"></a>记录一下使用kratos模板创建个人博客</h2><p>以下是用于美化的css文件</p><p>花了一个下午研究这玩意，而且在一些奇怪的地方有BUG。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.kratos-topnav</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#085c0999</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">80px</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sf-menu</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#kratos-menu-wrap</span> <span class="selector-class">.sf-menu</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  <span class="comment">/* text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000; */</span></span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#kratos-menu-wrap</span> <span class="selector-class">.sf-menu</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#090909</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d4d4d499</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#kratos-desktop-topnav</span> <span class="selector-class">.sf-menu</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">ul</span><span class="selector-class">.sub-menu</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kratos-entry-footer</span> <span class="selector-class">.footer-tag</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>最终成果如图：</p><p><img src="/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8kratos%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/pic1.png" alt="屏幕截图 2025-09-18 165919"></p><p>于2025年9月18日17:01:49，NJU</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="记录一下使用kratos模板创建个人博客"><a href="#记录一下使用kratos模板创建个人博客" class="headerlink" title="记录一下使用kratos模板创建个人博客"></a>记录一下使用kratos模板创建个人博客</h2><p>以下是用于美化的css文件</p><p>花了一个下午研究这玩意，而且在一些奇怪的地方有BUG。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.kratos-topnav</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#085c0999</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">80px</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sf-menu</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#kratos-menu-wrap</span> <span class="selector-class">.sf-menu</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  <span class="comment">/* text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000; */</span></span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#kratos-menu-wrap</span> <span class="selector-class">.sf-menu</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#090909</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#d4d4d499</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#kratos-desktop-topnav</span> <span class="selector-class">.sf-menu</span>&gt;<span class="selector-tag">li</span>&gt;<span class="selector-tag">ul</span><span class="selector-class">.sub-menu</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kratos-entry-footer</span> <span class="selector-class">.footer-tag</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>最终成果如图：</p><p><img src="/myblog.github.io/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8kratos%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/pic1.png" alt="屏幕截图 2025-09-18 165919"></p><p>于2025年9月18日17:01:49，NJU</p>]]></content>
     
     
       
@@ -34,16 +34,16 @@
     
     
     
-    <category term="记录" scheme="https://hyperion1230.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
+    <category term="记录" scheme="https://hyperion1230.github.io/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="kratos" scheme="https://hyperion1230.github.io/tags/kratos/"/>
+    <category term="kratos" scheme="https://hyperion1230.github.io/myblog.github.io/tags/kratos/"/>
     
   </entry>
   
   <entry>
     <title>你好，世界！</title>
-    <link href="https://hyperion1230.github.io/posts/hello-world/"/>
-    <id>https://hyperion1230.github.io/posts/hello-world/</id>
+    <link href="https://hyperion1230.github.io/myblog.github.io/posts/hello-world/"/>
+    <id>https://hyperion1230.github.io/myblog.github.io/posts/hello-world/</id>
     <published>2018-05-06T09:03:12.000Z</published>
     <updated>2025-09-19T06:12:31.967Z</updated>
     
@@ -58,14 +58,14 @@
     
     
     
-    <category term="new!" scheme="https://hyperion1230.github.io/categories/new/"/>
+    <category term="new!" scheme="https://hyperion1230.github.io/myblog.github.io/categories/new/"/>
     
     
-    <category term="欢迎" scheme="https://hyperion1230.github.io/tags/%E6%AC%A2%E8%BF%8E/"/>
+    <category term="欢迎" scheme="https://hyperion1230.github.io/myblog.github.io/tags/%E6%AC%A2%E8%BF%8E/"/>
     
-    <category term="你好" scheme="https://hyperion1230.github.io/tags/%E4%BD%A0%E5%A5%BD/"/>
+    <category term="你好" scheme="https://hyperion1230.github.io/myblog.github.io/tags/%E4%BD%A0%E5%A5%BD/"/>
     
-    <category term="asd" scheme="https://hyperion1230.github.io/tags/asd/"/>
+    <category term="asd" scheme="https://hyperion1230.github.io/myblog.github.io/tags/asd/"/>
     
   </entry>
   
