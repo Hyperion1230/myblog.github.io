@@ -124,4 +124,4 @@ sitemap:
 deploy:
   type: git
   repository: https://github.com/Hyperion1230/myblog.github.io.git
-  branch: main
+  branch: master
