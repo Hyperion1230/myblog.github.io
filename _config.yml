@@ -16,7 +16,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://hyperion1230.github.io/
+url: https://hyperion1230.github.io/myblog.github.io/
 permalink: posts/:title/
 permalink_defaults:
 pretty_urls:
@@ -124,4 +124,4 @@ sitemap:
 deploy:
   type: git
   repository: https://github.com/Hyperion1230/myblog.github.io.git
-  branch: cloudflare
+  branch: master
