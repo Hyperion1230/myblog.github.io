@@ -155,6 +155,31 @@
                                         
                                     </li>
                                 
+                                    <li>
+                                        
+                                            <a>
+                                        
+                                            
+                                                <i class="fa fa-game"></i>
+                                            
+                                            Funry
+                                        </a>
+                                        
+                                            <ul class="sub-menu">
+                                                
+                                                    <li>
+                                                        <a href="/myblog.github.io/game/2048/index.html">
+                                                            
+                                                                <i class="fa fa-game"></i>
+                                                            
+                                                            2048
+                                                        </a>
+                                                    </li>
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
                             </ul>
                         </nav>
                     </div>
@@ -383,6 +408,21 @@
 
 
 <!-- 额外的追加注入项 -->
+
+    <script>
+(function() {
+  // 获取当前小时
+  var hour = new Date().getHours();
+  // 设置暗色主题时间段(18:00-6:00)
+  var isDark = hour >= 18 || hour < 6;
+  // 应用主题
+  if (isDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
 
 
         <script>

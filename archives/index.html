@@ -157,6 +157,31 @@
                                         
                                     </li>
                                 
+                                    <li>
+                                        
+                                            <a>
+                                        
+                                            
+                                                <i class="fa fa-game"></i>
+                                            
+                                            Funry
+                                        </a>
+                                        
+                                            <ul class="sub-menu">
+                                                
+                                                    <li>
+                                                        <a href="/myblog.github.io/game/2048/index.html">
+                                                            
+                                                                <i class="fa fa-game"></i>
+                                                            
+                                                            2048
+                                                        </a>
+                                                    </li>
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
                             </ul>
                         </nav>
                     </div>
@@ -345,7 +370,7 @@
                 标签
             </span>
             <span class="count">
-                4
+                5
             </span>
         </a>
     </div>
@@ -363,7 +388,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/myblog.github.io/tags/kratos/" style="font-size: 0.6em;">kratos</a> <a href="/myblog.github.io/tags/%E4%BD%A0%E5%A5%BD/" style="font-size: 0.6em;">你好</a> <a href="/myblog.github.io/tags/%E6%AC%A2%E8%BF%8E/" style="font-size: 0.6em;">欢迎</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 0.6em;">记录</a>
+        <a href="/myblog.github.io/tags/asd/" style="font-size: 0.6em;">asd</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 0.6em;">kratos</a> <a href="/myblog.github.io/tags/%E4%BD%A0%E5%A5%BD/" style="font-size: 0.6em;">你好</a> <a href="/myblog.github.io/tags/%E6%AC%A2%E8%BF%8E/" style="font-size: 0.6em;">欢迎</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 0.6em;">记录</a>
       </div>
   </aside>
 
@@ -528,6 +553,21 @@
 
 
 <!-- 额外的追加注入项 -->
+
+    <script>
+(function() {
+  // 获取当前小时
+  var hour = new Date().getHours();
+  // 设置暗色主题时间段(18:00-6:00)
+  var isDark = hour >= 18 || hour < 6;
+  // 应用主题
+  if (isDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
 
 
         <script>
