@@ -68,3 +68,6 @@
 .kr-comments {
     border-radius: 15px;
 }
+body.scroll-down.nav-up #kratos-desktop-topnav {
+    top:-81px
+}}
