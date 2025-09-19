@@ -52,3 +52,13 @@
 #kratos-blog-post .row article{
     border-radius: 15px;
 }
+#kratos-desktop-topnav .sf-menu>li>ul.sub-menu li a {
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#kratos-desktop-topnav .sf-menu>li>ul.sub-menu{
+  left:0px;
+
+}
