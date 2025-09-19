@@ -1,7 +1,7 @@
 ---
 title: 你好，世界！
 date: 2018-05-06 17:03:12
-categories: 全新体验
+categories: new!
 tags:
 - 欢迎
 - 你好
