@@ -50,3 +50,25 @@ hexo d
 
 尝试部署到cloudflare上，但是发现静态文件的路径不可用，部署上的网页无法渲染，遂修改静态资源路径，重新开设了一个分支cloudflare，但是后来发现要更新2次就放弃了。。。
 
+-----
+
+真恶心，晚上用mac推送博文发现疯狂报错：
+
+> Error: Spawn failed
+>     at ChildProcess.<anonymous> (/Users/dasiweida/Blog/myblog.github.io/node_modules/hexo-deployer-git/no
+> de_modules/hexo-util/lib/spawn.js:51:21)
+>     at ChildProcess.emit (node:events:508:28)
+>     at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+
+死活推送不到github
+
+尝试了包括但不限于以下方法：
+
+1. 重新删除`.deploy-git`文件：没用
+2. 修改整个目录权限：没用
+3. 最后终于给我找的了，原来是git push的缓冲区有限制！！！太坑了！
+
+```bash
+git config --golbal http.postBuffer
+```
+
