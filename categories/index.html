@@ -534,6 +534,14 @@
                         <svg fill="currentColor" width="18" height="18" viewBox="0 0 329 388"><path d="M0,36.226c0,-19.993 16.233,-36.226 36.226,-36.226c13.788,0 25.787,7.719 31.908,19.068l188.366,229.845l0,-111.259c-6.356,5.508 -14.645,8.843 -23.707,8.843c-19.994,0 -36.226,-16.232 -36.226,-36.226c-0,-8.551 2.968,-16.413 7.93,-22.613l-0.015,-0.013l56.614,-69.08c6.2,-11.073 18.047,-18.565 31.63,-18.565c19.994,0 36.227,16.233 36.227,36.226l-0,314.644c-0,19.994 -16.233,36.226 -36.227,36.226c-13.166,0 -24.701,-7.039 -31.044,-17.555l-189.229,-230.899l-0,212.228c-0,19.994 -16.233,36.226 -36.227,36.226c-19.993,0 -36.226,-16.232 -36.226,-36.226l0,-314.644Z" /></svg>
                     </button>
                 
+                    <button class="kr-share-platform-button" style="color: #12B7F5;" title="QQ" onclick="krShareModalOpenPlatform('http://connect.qq.com/widget/shareqq/index.html?url=$URL&title=$TITLE&summary=$SUMMARY')">
+                        <i class="fa fa-qq"></i>
+                    </button>
+                
+                    <button class="kr-share-platform-button" style="color: #07c160;" title="微信" onclick="krShareModalOpenPlatform('https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=$URL')">
+                        <i class="fa fa-weixin"></i>
+                    </button>
+                
             </div>
         </div>
     </div>
@@ -584,7 +592,9 @@
 
 <!-- 额外的追加注入项 -->
 
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script src="/myblog.github.io/comments/gitalk.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/myblog.github.io/comments/gitalk.js"></script>
+
 
 
     </body>
