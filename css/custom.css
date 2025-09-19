@@ -46,3 +46,9 @@
 #kratos-widget-area .widget:last-child {
     border-radius: 15px;
 }
+.kratos-entry-border .kratos-entry-post-meta {
+    border-radius: 15px;
+}
+#kratos-blog-post .row article{
+    border-radius: 15px;
+}
