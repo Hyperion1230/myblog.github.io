@@ -7,6 +7,7 @@ const gameOverScreen = document.getElementById('game-over');
 const finalScoreDisplay = document.getElementById('final-score');
 const startButton = document.getElementById('start-button');
 const restartButton = document.getElementById('restart-button');
+const exitButton = document.getElementById('exit-button');
 
 let score = 0;
 let timeLeft = 60;
@@ -44,6 +45,7 @@ function initGame() {
     // 显示游戏界面，隐藏开始和结束界面
     startScreen.style.display = 'none';
     gameOverScreen.style.display = 'none';
+    exitButton.style.display = 'block'; 
     
     // 开始游戏循环
     isGameRunning = true;
@@ -260,6 +262,7 @@ function endGame() {
     
     finalScoreDisplay.textContent = `你的分数: ${score}`;
     gameOverScreen.style.display = 'flex';
+    exitButton.style.display = 'none';
 }
 
 // 事件监听器
