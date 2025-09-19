@@ -90,7 +90,14 @@ share:
       icon: <svg fill="currentColor" width="18" height="18" viewBox="0 0 329 388"><path d="M0,36.226c0,-19.993 16.233,-36.226 36.226,-36.226c13.788,0 25.787,7.719 31.908,19.068l188.366,229.845l0,-111.259c-6.356,5.508 -14.645,8.843 -23.707,8.843c-19.994,0 -36.226,-16.232 -36.226,-36.226c-0,-8.551 2.968,-16.413 7.93,-22.613l-0.015,-0.013l56.614,-69.08c6.2,-11.073 18.047,-18.565 31.63,-18.565c19.994,0 36.227,16.233 36.227,36.226l-0,314.644c-0,19.994 -16.233,36.226 -36.227,36.226c-13.166,0 -24.701,-7.039 -31.044,-17.555l-189.229,-230.899l-0,212.228c-0,19.994 -16.233,36.226 -36.227,36.226c-19.993,0 -36.226,-16.232 -36.226,-36.226l0,-314.644Z" /></svg>
       color: "#62b6e7"
       link: "https://nya.one/share?text=%3E%20$TITLE%0A%3E%0A%3E%20$SUMMARY%0A----%20$SITE%0A%0A$URL"
-
+    - name: "QQ"
+      icon: "<i class=\"fa fa-qq\"></i>"  # 使用Font Awesome图标
+      color: "#12B7F5"
+      link: "http://connect.qq.com/widget/shareqq/index.html?url=$URL&title=$TITLE&summary=$SUMMARY"
+    - name: "微信"
+      icon: "<i class=\"fa fa-weixin\"></i>"  # 使用Font Awesome图标
+      color: "#07c160"
+      link: "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=$URL"
 # 打赏组件设置
 donate:
   enable: true
@@ -141,7 +148,7 @@ visit_count:
 
 posts:
   default_cover: /myblog.github.io/images/default.png # 没有头图的文章使用的默认图片
-  donate: true # 默认是否启用打赏功能
+  donate: false # 默认是否启用打赏功能
   share: true # 默认是否启用分享功能
   word_count: # 字数统计功能
     enable: true # 是否启用
@@ -158,5 +165,6 @@ posts:
 additional_injections:
   head: '<link rel="stylesheet" href="/myblog.github.io/css/custom.css"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><link rel="stylesheet" href="/myblog.github.io/comments/gitalk.css" />' # 搜索引擎验证，或是追加的样式表
   footer: "<script>\n(function() {\n  // 获取当前小时\n  var hour = new Date().getHours();\n  // 设置暗色主题时间段(18:00-6:00)\n  var isDark = hour >= 18 || hour < 6;\n  // 应用主题\n  if (isDark) {\n    document.documentElement.setAttribute('data-theme', 'dark');\n  } else {\n    document.documentElement.setAttribute('data-theme', 'light');\n  }\n})();\n</script>"
-  after_footer: <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script src="/myblog.github.io/comments/gitalk.js"></script> # 站点分析，或是追加的脚本
-
+  after_footer: |
+   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script src="/myblog.github.io/comments/gitalk.js"></script>

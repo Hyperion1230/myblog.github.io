@@ -7,7 +7,10 @@
 .gt-header-textarea,
 .gt-header-preview,
 .gt-btn-preview,
-.gt-comment-content,
+.gt-comment-content{
+  border-radius: 15px;
+
+}
 .gt-popup {
   background-color: var(--kr-theme-page-bg) !important;
 }
