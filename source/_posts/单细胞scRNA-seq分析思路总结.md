@@ -59,51 +59,51 @@ tags:
 
   - 找出在细胞间变异度最高的一批基因（常用 2000）。
 
-  - {% collapse 具体方法 %}
+{% collapse 具体方法 %}
 
-  - 🔬 Seurat 内置的三种方法
+- 🔬 Seurat 内置的三种方法
 
-    在 `FindVariableFeatures()` 里可以设置 `selection.method`：
+  在 `FindVariableFeatures()` 里可以设置 `selection.method`：
 
-    1. `"vst"`（Variance Stabilizing Transformation）👉 默认、推荐
+  1. `"vst"`（Variance Stabilizing Transformation）👉 默认、推荐
 
-    - **思路**：
-      - 对每个基因，在所有细胞里的表达做方差估计；
-      - 把方差和均值之间的关系建模（负二项分布近似）；
-      - 计算残差方差（observed variance / expected variance）。
-    - **特点**：
-      - 在去除了均值依赖性后，能稳健地挑出高变基因；
-      - 对高表达基因不会过度偏向；
-      - 推荐作为大多数 scRNA-seq 分析的标准方法。
+  - **思路**：
+    - 对每个基因，在所有细胞里的表达做方差估计；
+    - 把方差和均值之间的关系建模（负二项分布近似）；
+    - 计算残差方差（observed variance / expected variance）。
+  - **特点**：
+    - 在去除了均值依赖性后，能稳健地挑出高变基因；
+    - 对高表达基因不会过度偏向；
+    - 推荐作为大多数 scRNA-seq 分析的标准方法。
 
-    ------
+  ------
 
-    2. `"mean.var.plot"`（MVP，均值-方差图方法）
+  2. `"mean.var.plot"`（MVP，均值-方差图方法）
 
-    - **思路**：
-      - 把基因按均值分成 bins；
-      - 计算每个基因在 bin 内的 `z-score`（方差相对 bin 内基因的偏高程度）；
-      - 取方差最高的一批基因。
-    - **特点**：
-      - 方法简单直观，可以画图展示（Mean-Variance Plot）。
-      - 对噪音和批次效应敏感，不如 `vst` 稳健。
+  - **思路**：
+    - 把基因按均值分成 bins；
+    - 计算每个基因在 bin 内的 `z-score`（方差相对 bin 内基因的偏高程度）；
+    - 取方差最高的一批基因。
+  - **特点**：
+    - 方法简单直观，可以画图展示（Mean-Variance Plot）。
+    - 对噪音和批次效应敏感，不如 `vst` 稳健。
 
-    ------
+  ------
 
-    3. `"dispersion"`（离散度方法）
+  3. `"dispersion"`（离散度方法）
 
-    - **思路**：
-      - 类似于 MVP，但直接用 **标准化后的方差/均值比（dispersion）** 来挑基因。
-    - **特点**：
-      - 速度快；
-      - 但容易偏向于低均值、相对离散度高的基因。
+  - **思路**：
+    - 类似于 MVP，但直接用 **标准化后的方差/均值比（dispersion）** 来挑基因。
+  - **特点**：
+    - 速度快；
+    - 但容易偏向于低均值、相对离散度高的基因。
 
 {% endcollapse %}
 
 - **缩放 (ScaleData)**：
   - `Z-score` 标准化基因表达，用于 PCA 等。
 
-{% collapse what is Z-score %}
+{% collapse 'what is Z-score' %}
 
 **Z-score**（标准分数、标准化值）是统计学里常用的一个指标，表示一个数值偏离平均值多少个标准差。
 
