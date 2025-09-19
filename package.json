@@ -26,9 +26,11 @@
     "hexo-generator-sitemap": "^3.0.1",
     "hexo-generator-tag": "^2.0.0",
     "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-marked": "^7.0.1",
+    "hexo-renderer-markdown-it-plus": "^1.0.6",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-kratos-rebirth": "3.0.0-beta.1"
+    "hexo-theme-kratos-rebirth": "3.0.0-beta.1",
+    "markdown-it": "^14.1.0",
+    "markdown-it-mark": "^4.0.0"
   }
 }
