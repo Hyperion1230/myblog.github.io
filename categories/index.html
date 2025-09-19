@@ -37,7 +37,7 @@
   <!-- 样式表文件 -->
   <link rel="stylesheet" id="kratos-css" href="/myblog.github.io/css/kr-core.min.css" media="all"></link>
   
-    <link rel="stylesheet" id="highlight-css" href="/myblog.github.io/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+    <link rel="stylesheet" id="highlight-css" href="/myblog.github.io/css/highlight/highlight.js/atom-dark.min.css" media="all"></link>
   
   <link rel="stylesheet" id="theme-light-css" href="/myblog.github.io/css/kr-theme/light.min.css" media="all"></link>
   <link rel="stylesheet" id="theme-dark-css" href="/myblog.github.io/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
@@ -526,13 +526,13 @@
             <div class="kr-modal-icon">
                 <i class="fa fa-share-alt"></i>
             </div>
-            <div class="kr-modal-title">分享这一刻</div>
+            <div class="kr-modal-title">Share this moment！</div>
             <button class="kr-modal-close" onclick="krCloseShareModal()">
                 <i class="fa fa-times-circle"></i>
             </button>
         </div>
         <div class="kr-modal-body">
-            <div class="kr-share-message">让朋友们也来瞅瞅！</div>
+            <div class="kr-share-message">好东西要和大家分享！</div>
             <div class="kr-share-qr" id="kr-share-qr"></div>
             <div class="kr-share-platforms">
                 
@@ -560,11 +560,9 @@
 
     <script>
 (function() {
-  // 获取当前小时
   var hour = new Date().getHours();
-  // 设置暗色主题时间段(18:00-6:00)
+  // 暗色时间段(18:00-6:00)
   var isDark = hour >= 18 || hour < 6;
-  // 应用主题
   if (isDark) {
     document.documentElement.setAttribute('data-theme', 'dark');
   } else {

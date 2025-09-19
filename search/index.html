@@ -37,7 +37,7 @@
   <!-- 样式表文件 -->
   <link rel="stylesheet" id="kratos-css" href="/myblog.github.io/css/kr-core.min.css" media="all"></link>
   
-    <link rel="stylesheet" id="highlight-css" href="/myblog.github.io/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+    <link rel="stylesheet" id="highlight-css" href="/myblog.github.io/css/highlight/highlight.js/atom-dark.min.css" media="all"></link>
   
   <link rel="stylesheet" id="theme-light-css" href="/myblog.github.io/css/kr-theme/light.min.css" media="all"></link>
   <link rel="stylesheet" id="theme-dark-css" href="/myblog.github.io/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
@@ -325,10 +325,10 @@
 <div id="kr-search-results">
     <div class="kratos-hentry kratos-page-inner clearfix">
         <div class="kratos-page-content kr-search-result">
-            <p>搜索多个关键词时请用空格分割，例如「单细胞 scRNA-seq 记录」这样；</p>
+            <p>搜索多个关键词时请用空格分割，例如「记录 hexo 单细胞」这样；</p>
             <p>您也可以使用这些标签碰碰运气哦~</p>
             <p class="search-demo-tags">
-                <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 18px; color: #b2b7be">单细胞</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 18px; color: #b2b7be">scRNA-seq</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 24px; color: #6c7588">记录</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 18px; color: #b2b7be">kratos</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 18px; color: #b2b7be">hexo</a>
+                <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 24px; color: #6c7588">记录</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 18px; color: #b2b7be">hexo</a> <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 18px; color: #b2b7be">单细胞</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 18px; color: #b2b7be">scRNA-seq</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 18px; color: #b2b7be">kratos</a>
             </p>
         </div>
     </div>
@@ -585,13 +585,13 @@
             <div class="kr-modal-icon">
                 <i class="fa fa-share-alt"></i>
             </div>
-            <div class="kr-modal-title">分享这一刻</div>
+            <div class="kr-modal-title">Share this moment！</div>
             <button class="kr-modal-close" onclick="krCloseShareModal()">
                 <i class="fa fa-times-circle"></i>
             </button>
         </div>
         <div class="kr-modal-body">
-            <div class="kr-share-message">让朋友们也来瞅瞅！</div>
+            <div class="kr-share-message">好东西要和大家分享！</div>
             <div class="kr-share-qr" id="kr-share-qr"></div>
             <div class="kr-share-platforms">
                 
@@ -619,11 +619,9 @@
 
     <script>
 (function() {
-  // 获取当前小时
   var hour = new Date().getHours();
-  // 设置暗色主题时间段(18:00-6:00)
+  // 暗色时间段(18:00-6:00)
   var isDark = hour >= 18 || hour < 6;
-  // 应用主题
   if (isDark) {
     document.documentElement.setAttribute('data-theme', 'dark');
   } else {
