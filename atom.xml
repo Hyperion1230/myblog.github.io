@@ -6,7 +6,7 @@
   <link href="https://hyperion1230.github.io/myblog.github.io/atom.xml" rel="self"/>
   
   <link href="https://hyperion1230.github.io/myblog.github.io/"/>
-  <updated>2025-09-19T09:08:21.773Z</updated>
+  <updated>2025-09-19T09:19:47.198Z</updated>
   <id>https://hyperion1230.github.io/myblog.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hyperion1230.github.io/myblog.github.io/posts/github-%E9%83%A8%E7%BD%B2hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     <id>https://hyperion1230.github.io/myblog.github.io/posts/github-%E9%83%A8%E7%BD%B2hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</id>
     <published>2025-09-19T07:22:56.000Z</published>
-    <updated>2025-09-19T09:08:21.773Z</updated>
+    <updated>2025-09-19T09:19:47.198Z</updated>
     
     <content type="html"><![CDATA[<h2 id="部署hexo到github"><a class="markdownIt-Anchor" href="#部署hexo到github"></a> 部署hexo到Github</h2><h3 id="一-创建github项目仓库"><a class="markdownIt-Anchor" href="#一-创建github项目仓库"></a> 一、创建github项目仓库</h3><p>在github页面创建一个自己的仓库，这个应该没啥问题</p><p><img src="152543.png" alt="image-20250919152645642" /></p><p>然后拉取远程仓库（我这边用的是kratos rebirth的模板，以下以此模板为例）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/kratos-rebirth/quickstart.git</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>修改完配置后用hexo进行部署</p><p><mark>注意</mark>：在部署的时候分支与修改格式内容的分支尽量重命名，以免后期发生git merge事件！！！</p><hr /><h3 id="二-之后就是hexo的部署"><a class="markdownIt-Anchor" href="#二-之后就是hexo的部署"></a> 二、之后就是hexo的部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>然后就完成部署了</p><hr /><h3 id="更新"><a class="markdownIt-Anchor" href="#更新"></a> 更新：</h3><p>尝试部署到cloudflare上，但是发现静态文件的路径不可用，部署上的网页无法渲染，遂修改静态资源路径，重新开设了一个分支cloudflare，但是后来发现要更新2次就放弃了。。。</p>]]></content>
     
@@ -34,6 +34,10 @@
     
     
     
+    
+    <category term="记录" scheme="https://hyperion1230.github.io/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="hexo" scheme="https://hyperion1230.github.io/myblog.github.io/tags/hexo/"/>
     
   </entry>
   
