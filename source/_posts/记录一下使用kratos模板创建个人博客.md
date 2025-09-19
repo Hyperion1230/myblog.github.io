@@ -5,7 +5,7 @@ toc: true
 donate: true
 share: true
 date: 2025-09-18 17:03:28
-categories:
+categories: new!
 cover: pic1.png
 tags:
 - 记录
