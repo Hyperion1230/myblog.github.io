@@ -156,9 +156,7 @@ posts:
 
 ################## 额外的注入代码 ##################
 additional_injections:
-  head: '<link rel="stylesheet" href="/myblog.github.io/css/custom.css"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-    <link rel="stylesheet" href="/myblog.github.io/comments/gitalk.css" />' # 搜索引擎验证，或是追加的样式表
+  head: '<link rel="stylesheet" href="/myblog.github.io/css/custom.css"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><link rel="stylesheet" href="/myblog.github.io/comments/gitalk.css" />' # 搜索引擎验证，或是追加的样式表
   footer: "<script>\n(function() {\n  // 获取当前小时\n  var hour = new Date().getHours();\n  // 设置暗色主题时间段(18:00-6:00)\n  var isDark = hour >= 18 || hour < 6;\n  // 应用主题\n  if (isDark) {\n    document.documentElement.setAttribute('data-theme', 'dark');\n  } else {\n    document.documentElement.setAttribute('data-theme', 'light');\n  }\n})();\n</script>"
-  after_footer: <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script src="/myblog.github.io/comments/gitalk.js"></script> # 站点分析，或是追加的脚本
+  after_footer: <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script><script src="/myblog.github.io/comments/gitalk.js"></script> # 站点分析，或是追加的脚本
 

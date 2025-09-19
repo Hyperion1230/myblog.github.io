@@ -119,6 +119,11 @@ sitemap:
   template: ./sitemap_template.xml
   rel: false
 
+markdown:
+  plugins:
+    - "markdown-it"
+    - "markdown-it-mark"
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
