@@ -1,41 +1,31 @@
-/* 修改导航栏背景色 */
 .kratos-topnav {
-  background: #266baf99 !important;
+  background: #085c0999 !important;
+  justify-content: center;
+  height: 80px;
+
 }
 
-/* 调整导航字体大小和间距 */
-.sf-menu a {
-  background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ffff00, #ff00ff, #00ffff);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
-  animation: gradientAnimation 5s ease infinite;
-  color: #020101 !important; /* 保留原始颜色作为降级方案 */
+.sf-menu {
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+#kratos-menu-wrap .sf-menu a {
+  color: #ffffff;
+  /* text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000; */
+  margin: 10px 10px;
+  font-size: 20px;
 }
-
-/* 修改悬停时的样式 */
-.sf-menu a:hover {
-  animation: none; /* 停止动画 */
-  -webkit-background-clip: initial;
-  background-clip: initial;
-  -webkit-text-fill-color: initial;
-  text-fill-color: initial;
-  background: none; /* 移除背景渐变 */
-  color: #ffcc00 !important; /* 设置悬停时的文字颜色 */
-  text-decoration: underline; /* 添加下划线效果 */
+#kratos-menu-wrap .sf-menu a {
+  border: 2px solid #090909;
+  background-color: #d4d4d499;
+  border-radius: 15px;
 }
-
-/* 移除导航菜单悬停效果 */
-.sf-menu>li:hover>a {
-  background: none !important; /* 移除背景色 */
-  color: #ffcc00 !important; /* 改变文字颜色，您可以根据需要调整颜色值 */
-  text-decoration: underline; /* 添加下划线效果 */
+#kratos-desktop-topnav .sf-menu>li>ul.sub-menu a {
+    color: #000000;
+}
+.kratos-entry-footer .footer-tag a {
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 15px;
 }

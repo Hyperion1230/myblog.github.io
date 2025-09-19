@@ -1,0 +1,54 @@
+/* 修改导航栏背景色 */
+.kratos-topnav {
+  background: #085c0999 !important;
+  justify-content: center;
+  height: 80px;
+
+}
+
+
+.sf-menu {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* 悬停高亮效果 */
+/* 移除导航菜单悬停效果 */
+/* 移除导航菜单悬停效果 */
+
+/* 调整导航字体大小和间距 */
+#kratos-menu-wrap .sf-menu a {
+  color: #ffffff;
+  /* text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000; */
+  margin: 10px 10px;
+  font-size: 20px;
+}
+#kratos-menu-wrap .sf-menu a {
+  border: 2px solid #090909;
+  background-color: #d4d4d499;
+  border-radius: 15px;
+}
+#kratos-desktop-topnav .sf-menu>li>ul.sub-menu a {
+    color: #000000;
+}
+.kratos-entry-footer .footer-tag a {
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+#kratos-widget-area .widget.widget-kratos-about{
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    border-radius: 15px
+}
+#kratos-widget-area .widget:last-child {
+    border-radius: 15px;
+}
+.kratos-entry-border .kratos-entry-post-meta {
+    border-radius: 15px;
+}
+#kratos-blog-post .row article{
+    border-radius: 15px;
+}

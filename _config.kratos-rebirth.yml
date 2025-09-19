@@ -9,25 +9,25 @@ search:
 
 # 图片配置
 image:
-  favicon: "/assets/favicon.png" # 站点图标
-  #avatar: "/assets/logo.webp" # 个人信息挂件上的头像
+  favicon: /myblog.github.io/assets/manbo.png # 站点图标
+  avatar: /myblog.github.io/images/IMG_5529.GIF # 个人信息挂件上的头像
   banner:
-    light: "https://dev.krt.moe/demo-assets/banner.webp"
-    dark: "https://dev.krt.moe/demo-assets/banner_dark.webp"
+    light: /myblog.github.io/images/ban.png
+    dark: /myblog.github.io/images/ban-dark.png
   background:
-    light: "https://dev.krt.moe/demo-assets/bg.webp"
-    dark: "https://dev.krt.moe/demo-assets/bg.webp"
+    light: /myblog.github.io/images/background-sun.png
+    dark: /myblog.github.io/images/background.png
 
 # 顶部导航栏配置
 nav:
   items:
-    - label: 首页
+    - label: Home
       icon: home
       url: /
-    - label: 档案馆
+    - label: Archives
       icon: file
       url: /archives/
-    - label: 链接
+    - label: Links
       icon: link
       submenu:
         - label: 代码仓库
@@ -36,23 +36,29 @@ nav:
         - label: 项目文档
           icon: book
           url: https://wiki.krt.moe
+    - label: Funry
+      icon: game
+      submenu:
+        - label: "2048"
+          icon: game
+          url: /game/2048/index.html
 
 # Footer 页脚配置
 footer:
   links:
     - icon: github
-      link: https://github.com/kratos-rebirth
-    - icon: rss
-      link: /atom.xml
+      link: https://github.com/Hyperion1230
+    # - icon: rss
+    #   link: /atom.xml
   components:
     uptime:
-      since: "2018/05/06 17:03:12"
-      text: "本站已在风雨中飘摇"
+      since: "2025/09/18 13:03:12"
+      text: "本站已运行"
     author:
-      homepage: "https://github.com/Candinya/Kratos-Rebirth/graphs/contributors"
+      homepage: "https://github.com/Hyperion1230/myblog.github.io"
     additional: # 托管信息等
-      - - 由 <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a> 强力驱动
-        - 在 <a href="https://github.io" target="_blank">Github Pages</a> 暖心托管
+      - - 由 <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a> 部署
+        -  <a href="https://github.io" target="_blank">Github Pages</a> 托管
 
 # 代码高亮
 # syntax_highlighter:
@@ -92,11 +98,11 @@ donate:
       qrcode: "example_payment"
 
 # 版权说明
-copyright_notice:
-  in_page:
-    enable_at:
-      - post
-      - page
+# copyright_notice:
+#   in_page:
+#     enable_at:
+#       - post
+#       - page
 
 # 评论系统
 comments:
@@ -127,8 +133,24 @@ visit_count:
     index: ""
     post: ""
 
+posts:
+  default_cover: /myblog.github.io/images/default.png # 没有头图的文章使用的默认图片
+  donate: true # 默认是否启用打赏功能
+  share: true # 默认是否启用分享功能
+  word_count: # 字数统计功能
+    enable: true # 是否启用
+    threshold: 1500 # 超过多少字开始显示为千字
+    estimate_wavy: true # 在千字的约数前显示波浪号
+  toc: # 文章目录
+    desktop: # 桌面端
+      list_number: false # 显示数字标号
+    mobile: # 移动端
+      enable: true # 是否启用
+      list_number: true # 显示数字标号
+
 ################## 额外的注入代码 ##################
 additional_injections:
-  head: "" # 搜索引擎验证，或是追加的样式表
-  footer: ""
+  head: '<link rel="stylesheet" href="/myblog.github.io/css/custom.css">' # 搜索引擎验证，或是追加的样式表
+  footer: "<script>\n(function() {\n  // 获取当前小时\n  var hour = new Date().getHours();\n  // 设置暗色主题时间段(18:00-6:00)\n  var isDark = hour >= 18 || hour < 6;\n  // 应用主题\n  if (isDark) {\n    document.documentElement.setAttribute('data-theme', 'dark');\n  } else {\n    document.documentElement.setAttribute('data-theme', 'light');\n  }\n})();\n</script>"
   after_footer: "" # 站点分析，或是追加的脚本
+
