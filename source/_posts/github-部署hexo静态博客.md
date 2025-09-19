@@ -7,6 +7,8 @@ share: true
 date: 2025-09-19 15:22:56
 categories:
 tags:
+- 记录
+- hexo
 ---
 
 ## 部署hexo到Github
