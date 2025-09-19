@@ -67,8 +67,8 @@ footer:
         -  <a href="https://github.io" target="_blank">Github Pages</a> 托管
 
 # 代码高亮
-syntax_highlighter:
-  theme: atom-dark # 代码高亮主题（请参照具体的高亮插件对应的主题样式）
+#syntax_highlighter:
+# theme: atom-dark # 代码高亮主题（请参照具体的高亮插件对应的主题样式）
 
 # Widgets 侧边栏小挂件
 sidebar:
