@@ -54,8 +54,8 @@ footer:
   links:
     - icon: github
       link: https://github.com/Hyperion1230
-    # - icon: rss
-    #   link: /atom.xml
+    - icon: rss
+      link: /myblog.github.io/atom.xml
   components:
     uptime:
       since: "2025/09/18 13:03:12"
@@ -67,8 +67,8 @@ footer:
         -  <a href="https://github.io" target="_blank">Github Pages</a> 托管
 
 # 代码高亮
-#syntax_highlighter:
-# theme: atom-dark # 代码高亮主题（请参照具体的高亮插件对应的主题样式）
+# syntax_highlighter:
+  #theme: atom-dark # 代码高亮主题（请参照具体的高亮插件对应的主题样式）
 
 # Widgets 侧边栏小挂件
 sidebar:
@@ -93,7 +93,7 @@ share:
     - name: "QQ"
       icon: "<i class=\"fa fa-qq\"></i>"  # 使用Font Awesome图标
       color: "#12B7F5"
-      link: "http://connect.qq.com/widget/shareqq/index.html?url=$URL&title=$TITLE&summary=$SUMMARY"
+      link: "https://connect.qq.com/widget/shareqq/index.html?url=$URL&title=$TITLE&desc=&summary=$SUMMARY&site=$SITE"
     - name: "微信"
       icon: "<i class=\"fa fa-weixin\"></i>"  # 使用Font Awesome图标
       color: "#07c160"
@@ -116,6 +116,10 @@ donate:
 #     enable_at:
 #       - post
 #       - page
+
+#pjax设置
+pjax: true
+
 
 # 评论系统
 comments:
@@ -163,8 +167,28 @@ posts:
 
 ################## 额外的注入代码 ##################
 additional_injections:
-  head: '<link rel="stylesheet" href="/myblog.github.io/css/custom.css"><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><link rel="stylesheet" href="/myblog.github.io/comments/gitalk.css" />' # 搜索引擎验证，或是追加的样式表
-  footer: "<script>\n(function() {\n  var hour = new Date().getHours();\n  // 暗色时间段(18:00-6:00)\n  var isDark = hour >= 18 || hour < 6;\n  if (isDark) {\n    document.documentElement.setAttribute('data-theme', 'dark');\n  } else {\n    document.documentElement.setAttribute('data-theme', 'light');\n  }\n})();\n</script>"
+  head: |
+    <link rel="stylesheet" href="/myblog.github.io/css/custom.css">
+    <link rel="stylesheet" href="/myblog.github.io/music/APlayer.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <link rel="stylesheet" href="/myblog.github.io/comments/gitalk.css" />
+    <link rel="stylesheet" href="/myblog.github.io/music/aplayer.css">
+  footer: |
+    <script>
+    (function() {
+      var hour = new Date().getHours();
+          var isDark = hour >= 18 || hour < 6;
+            if (isDark) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+              document.documentElement.setAttribute('data-theme', 'light');
+                        }
+                        })();
+                        </script>
+    <meting-js server="netease" type="playlist" id="12511958644" fixed="true" order="random"></meting-js>
+                            
   after_footer: |
    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
    <script src="/myblog.github.io/comments/gitalk.js"></script>
+   <script src="/myblog.github.io/music/APlayer.min.js"></script>
+   <script src="/myblog.github.io/music/Meting.min.js"></script>

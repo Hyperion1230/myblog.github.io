@@ -109,6 +109,8 @@ plugin:
  - hexo-generator-feed
  - hexo-generator-sitemap
 
+rss: true
+
 feed:
  type: atom
  path: atom.xml
@@ -130,3 +132,7 @@ deploy:
   type: git
   repository: https://github.com/Hyperion1230/myblog.github.io.git
   branch: master
+
+aplayer:
+  meting: true
+  asset_inject: false
