@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <link rel="stylesheet" href="/myblog.github.io/music/aplayer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2048</title>
@@ -41,7 +42,21 @@
     <p class="keyboard-hint">
         提示：你也可以使用键盘方向键或WASD控制游戏
     </p>
+    <!-- require APlayer -->
+<link rel="stylesheet" href="/myblog.github.io/music/APlayer.min.css">
+<script src="/myblog.github.io/music/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="/myblog.github.io/music/Meting.min.js"></script>
 
+<meting-js
+	server="netease"
+	type="playlist"
+	id="12511958644"
+    fixed="true"
+    order="random"
+    autoplay="true"
+    volume="0.3">
+</meting-js>
     <script src="../js/e.js"></script>
 </body>
 </html>
