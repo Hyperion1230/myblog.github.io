@@ -19,15 +19,15 @@
   
     <meta name="keywords" content="scRNA-seq, 单细胞" />
   
-  <meta name="description" content="单细胞分析思路，把常见的步骤和逻辑框架讲清楚。这里主要以 单细胞转录组（scRNA-seq） 为例。   具体流程  1. 数据准备与质控 (QC)  输入：原始 UMI&#x2F;reads 矩阵（细胞 × 基因）。 目标：筛掉低质量细胞，保证分析结果可靠。 常见 QC 指标：  每个细胞的总 reads&#x2F;UMI 数（低了可能是坏细胞，高了可能是双细胞 doublet）。 检测到的基因数。 线粒体基因比例">
+  <meta name="description" content="单细胞分析思路，把常见的步骤和逻辑框架讲清楚。这里主要以 单细胞转录组（scRNA-seq） 为例。   具体流程  数据准备与质控 (QC)  输入：原始 UMI&#x2F;reads 矩阵（细胞 × 基因）。 目标：筛掉低质量细胞，保证分析结果可靠。 常见 QC 指标：  每个细胞的总 reads&#x2F;UMI 数（低了可能是坏细胞，高了可能是双细胞 doublet）。 检测到的基因数。 线粒体基因比例（过高">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单细胞scRNA-seq分析思路总结">
 <meta property="og:url" content="https://hyperion1230.github.io/myblog.github.io/posts/%E5%8D%95%E7%BB%86%E8%83%9EscRNA-seq%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Hammerbrother的博客">
-<meta property="og:description" content="单细胞分析思路，把常见的步骤和逻辑框架讲清楚。这里主要以 单细胞转录组（scRNA-seq） 为例。   具体流程  1. 数据准备与质控 (QC)  输入：原始 UMI&#x2F;reads 矩阵（细胞 × 基因）。 目标：筛掉低质量细胞，保证分析结果可靠。 常见 QC 指标：  每个细胞的总 reads&#x2F;UMI 数（低了可能是坏细胞，高了可能是双细胞 doublet）。 检测到的基因数。 线粒体基因比例">
+<meta property="og:description" content="单细胞分析思路，把常见的步骤和逻辑框架讲清楚。这里主要以 单细胞转录组（scRNA-seq） 为例。   具体流程  数据准备与质控 (QC)  输入：原始 UMI&#x2F;reads 矩阵（细胞 × 基因）。 目标：筛掉低质量细胞，保证分析结果可靠。 常见 QC 指标：  每个细胞的总 reads&#x2F;UMI 数（低了可能是坏细胞，高了可能是双细胞 doublet）。 检测到的基因数。 线粒体基因比例（过高">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-09-19T11:09:47.000Z">
-<meta property="article:modified_time" content="2025-09-20T01:21:54.911Z">
+<meta property="article:modified_time" content="2025-09-20T03:47:22.887Z">
 <meta property="article:author" content="Hammerbrother">
 <meta property="article:tag" content="scRNA-seq">
 <meta property="article:tag" content="单细胞">
@@ -264,7 +264,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.62K
+                            ~2.74K
                         
                         字
                     </li>
@@ -278,14 +278,14 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text"> 具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%E8%B4%A8%E6%8E%A7-qc"><span class="toc-number">1.1.</span> <span class="toc-text"> 1. 数据准备与质控 (QC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%A0%87%E5%87%86%E5%8C%96%E4%B8%8E%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="toc-number">1.2.</span> <span class="toc-text"> 2. 标准化与特征选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%99%8D%E7%BB%B4"><span class="toc-number">1.3.</span> <span class="toc-text"> 3. 降维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%82%BB%E5%B1%85%E5%9B%BE%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%81%9A%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text"> 4. 邻居图构建与聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%86%E8%83%9E%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A"><span class="toc-number">1.5.</span> <span class="toc-text"> 5. 细胞类型注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%B8%8B%E6%B8%B8%E5%88%86%E6%9E%90"><span class="toc-number">1.6.</span> <span class="toc-text"> 6. 下游分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="toc-number">1.7.</span> <span class="toc-text"> 7. 可视化与验证</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text"> 具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%E8%B4%A8%E6%8E%A7-qc"><span class="toc-number">1.1.</span> <span class="toc-text"> 数据准备与质控 (QC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%8C%96%E4%B8%8E%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="toc-number">1.2.</span> <span class="toc-text"> 标准化与特征选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4"><span class="toc-number">1.3.</span> <span class="toc-text"> 降维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E5%B1%85%E5%9B%BE%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%81%9A%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text"> 邻居图构建与聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%86%E8%83%9E%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A"><span class="toc-number">1.5.</span> <span class="toc-text"> 细胞类型注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%B8%B8%E5%88%86%E6%9E%90"><span class="toc-number">1.6.</span> <span class="toc-text"> 下游分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="toc-number">1.7.</span> <span class="toc-text"> 可视化与验证</span></a></li></ol></li></ol>
                 </div>
             
             <hr />
             <div itemprop="articleBody"><p><strong>单细胞分析思路</strong>，把常见的步骤和逻辑框架讲清楚。这里主要以 <strong>单细胞转录组（scRNA-seq）</strong> 为例。</p>
 <hr />
 <h1 id="具体流程"><a class="markdownIt-Anchor" href="#具体流程"></a> 具体流程</h1>
-<h2 id="1-数据准备与质控-qc"><a class="markdownIt-Anchor" href="#1-数据准备与质控-qc"></a> 1. <strong>数据准备与质控 (QC)</strong></h2>
+<h2 id="数据准备与质控-qc"><a class="markdownIt-Anchor" href="#数据准备与质控-qc"></a> <strong>数据准备与质控 (QC)</strong></h2>
 <ul>
 <li><strong>输入</strong>：原始 UMI/reads 矩阵（细胞 × 基因）。</li>
 <li><strong>目标</strong>：筛掉低质量细胞，保证分析结果可靠。</li>
@@ -311,7 +311,7 @@
     </div></div>
     </div>
 <hr />
-<h2 id="2-标准化与特征选择"><a class="markdownIt-Anchor" href="#2-标准化与特征选择"></a> 2. <strong>标准化与特征选择</strong></h2>
+<h2 id="标准化与特征选择"><a class="markdownIt-Anchor" href="#标准化与特征选择"></a> <strong>标准化与特征选择</strong></h2>
 <ul>
 <li><strong>归一化 (Normalize)</strong>：
 <ul>
@@ -339,87 +339,78 @@
 
     </div>
     </div>
-<ul>
-<li>
 <p><strong>高变基因选择 (FindVariableFeatures)</strong>：</p>
 <ul>
 <li>找出在细胞间变异度最高的一批基因（常用 2000）。</li>
 </ul>
-</li>
-</ul>
 <div class="collapse-box-control">
     <div class="collapse-box-header"><div class="collapse-box-icon"><i class="fa fa-plus"></i></div><span>具体方法</span></div>
     <div class="collapse-box-content"><div class="inner">
-        <ul>
-<li>
-<p>🔬 Seurat 内置的三种方法</p>
+        <p>🔬 Seurat 内置的三种方法</p>
 <p>在 <code>FindVariableFeatures()</code> 里可以设置 <code>selection.method</code>：</p>
 <ol>
 <li><code>&quot;vst&quot;</code>（Variance Stabilizing Transformation）👉 默认、推荐</li>
 </ol>
 <ul>
-<li><strong>思路</strong>：
+<li>
+<p><strong>思路</strong>：</p>
 <ul>
 <li>对每个基因，在所有细胞里的表达做方差估计；</li>
 <li>把方差和均值之间的关系建模（负二项分布近似）；</li>
 <li>计算残差方差（observed variance / expected variance）。</li>
 </ul>
 </li>
-<li><strong>特点</strong>：
+<li>
+<p><strong>特点</strong>：</p>
 <ul>
 <li>在去除了均值依赖性后，能稳健地挑出高变基因；</li>
 <li>对高表达基因不会过度偏向；</li>
 <li>推荐作为大多数 scRNA-seq 分析的标准方法。</li>
 </ul>
-</li>
-</ul>
 <hr />
 <ol start="2">
 <li><code>&quot;mean.var.plot&quot;</code>（MVP，均值-方差图方法）</li>
 </ol>
-<ul>
-<li><strong>思路</strong>：
+</li>
+<li>
+<p><strong>思路</strong>：</p>
 <ul>
 <li>把基因按均值分成 bins；</li>
 <li>计算每个基因在 bin 内的 <code>z-score</code>（方差相对 bin 内基因的偏高程度）；</li>
 <li>取方差最高的一批基因。</li>
 </ul>
 </li>
-<li><strong>特点</strong>：
+<li>
+<p><strong>特点</strong>：</p>
 <ul>
 <li>方法简单直观，可以画图展示（Mean-Variance Plot）。</li>
 <li>对噪音和批次效应敏感，不如 <code>vst</code> 稳健。</li>
-</ul>
-</li>
 </ul>
 <hr />
 <ol start="3">
 <li><code>&quot;dispersion&quot;</code>（离散度方法）</li>
 </ol>
-<ul>
-<li><strong>思路</strong>：
+</li>
+<li>
+<p><strong>思路</strong>：</p>
 <ul>
 <li>类似于 MVP，但直接用 <strong>标准化后的方差/均值比（dispersion）</strong> 来挑基因。</li>
 </ul>
 </li>
-<li><strong>特点</strong>：
+<li>
+<p><strong>特点</strong>：</p>
 <ul>
 <li>速度快；</li>
 <li>但容易偏向于低均值、相对离散度高的基因。</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
  
     </div></div>
     </div>
-<ul>
-<li><strong>缩放 (ScaleData)</strong>：
+<p><strong>缩放 (ScaleData)</strong>：</p>
 <ul>
 <li><code>Z-score</code> 标准化基因表达，用于 PCA 等。</li>
-</ul>
-</li>
 </ul>
 <div class="collapse-box-control">
     <div class="collapse-box-header"><div class="collapse-box-icon"><i class="fa fa-plus"></i></div><span>what is Z-score</span></div>
@@ -428,11 +419,9 @@
 <p>公式：</p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>z</mi><mo>=</mo><mfrac><mrow><mi>x</mi><mtext>−</mtext><mi>μ</mi></mrow><mi>σ</mi></mfrac></mrow><annotation encoding="application/x-tex">z=\frac{x−μ}{σ}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.9463300000000001em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2603300000000002em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mord">−</span><span class="mord mathnormal">μ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-<ul>
-<li><code>x</code>：某个观测值</li>
-<li><code>μ</code>：总体/样本的平均值</li>
-<li><code>σ</code>：总体/样本的标准差</li>
-</ul>
+<p><code>x</code>：某个观测值</p>
+<p><code>μ</code>：总体/样本的平均值</p>
+<p><code>σ</code>：总体/样本的标准差</p>
 <hr />
 <p><strong>在单细胞分析里的应用</strong></p>
 <ul>
@@ -452,35 +441,47 @@
     </div></div>
     </div>
 <hr />
-<h2 id="3-降维"><a class="markdownIt-Anchor" href="#3-降维"></a> 3. <strong>降维</strong></h2>
-<ul>
-<li><strong>线性降维 (PCA)</strong>：
+<h2 id="降维"><a class="markdownIt-Anchor" href="#降维"></a> <strong>降维</strong></h2>
+<p><strong>线性降维 (PCA)</strong>：</p>
 <ul>
 <li>提取主要变异维度。</li>
 </ul>
-</li>
-<li><strong>非线性降维 (UMAP/tSNE)</strong>：
+<p><strong>非线性降维 (UMAP/tSNE)</strong>：</p>
 <ul>
 <li>用于可视化，把高维数据投射到 2D/3D。</li>
 </ul>
-</li>
-</ul>
+<div class="panel panel-info">
+    <div class="panel-title"><i class="fa fa-info"></i>undefined</div>
+    <div class="panel-body">
+        <p>对于单细胞RNA-seq而言，降维分析时先使用PCA提取变异的主成分这里有一些<span class="blur">可能是20？</span>，再对得到的降维数据进行UMPA聚类。</p>
+
+    </div>
+    </div>
 <hr />
-<h2 id="4-邻居图构建与聚类"><a class="markdownIt-Anchor" href="#4-邻居图构建与聚类"></a> 4. <strong>邻居图构建与聚类</strong></h2>
+<h2 id="邻居图构建与聚类"><a class="markdownIt-Anchor" href="#邻居图构建与聚类"></a> <strong>邻居图构建与聚类</strong></h2>
 <ul>
 <li><strong>FindNeighbors</strong>：构建 kNN 图或 SNN 图。</li>
+</ul>
+<p><div class="collapse-box-control">
+    <div class="collapse-box-header"><div class="collapse-box-icon"><i class="fa fa-plus"></i></div><span>What’s</span></div>
+    <div class="collapse-box-content"><div class="inner">
+        <br />
+&lt;内容&gt;</p> 
+    </div></div>
+    </div>
+<ul>
 <li><strong>FindClusters</strong>：基于图的社区检测算法（Louvain/Leiden），得到细胞簇。</li>
 <li><strong>意义</strong>：把表达相似的细胞归为一群。</li>
 </ul>
 <hr />
-<h2 id="5-细胞类型注释"><a class="markdownIt-Anchor" href="#5-细胞类型注释"></a> 5. <strong>细胞类型注释</strong></h2>
+<h2 id="细胞类型注释"><a class="markdownIt-Anchor" href="#细胞类型注释"></a> <strong>细胞类型注释</strong></h2>
 <ul>
 <li><strong>找 marker 基因 (FindAllMarkers)</strong>：每个 cluster 的特异表达基因。</li>
 <li><strong>对照已知 marker</strong>：推断 cluster 对应的细胞类型。</li>
 <li><strong>可选</strong>：用参考数据库或自动化工具（SingleR, CellTypist）。</li>
 </ul>
 <hr />
-<h2 id="6-下游分析"><a class="markdownIt-Anchor" href="#6-下游分析"></a> 6. <strong>下游分析</strong></h2>
+<h2 id="下游分析"><a class="markdownIt-Anchor" href="#下游分析"></a> <strong>下游分析</strong></h2>
 <p>根据研究问题不同，可能包括：</p>
 <ul>
 <li><strong>差异表达分析 (FindMarkers)</strong>：比较不同 cluster / 条件下的基因表达差异。</li>
@@ -490,7 +491,7 @@
 <li><strong>多组学整合 (WNN, MOFA+, Seurat v5)</strong>：整合 RNA、ATAC、ADT 等。</li>
 </ul>
 <hr />
-<h2 id="7-可视化与验证"><a class="markdownIt-Anchor" href="#7-可视化与验证"></a> 7. <strong>可视化与验证</strong></h2>
+<h2 id="可视化与验证"><a class="markdownIt-Anchor" href="#可视化与验证"></a> <strong>可视化与验证</strong></h2>
 <ul>
 <li>UMAP/tSNE 图上展示 cluster/marker 表达。</li>
 <li>小提琴图、热图展示基因表达模式。</li>
@@ -519,7 +520,7 @@
                     <a class="tag-none-link" href="/myblog.github.io/tags/scRNA-seq/" rel="tag">scRNA-seq</a>, <a class="tag-none-link" href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" rel="tag">单细胞</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-09-20T01:21:54.911Z" itemprop="dateModified">最后编辑：2025-09-20</time>
+                    <time datetime="2025-09-20T03:47:22.887Z" itemprop="dateModified">最后编辑：2025-09-20</time>
                 </div>
             </div>
         </footer>
@@ -600,7 +601,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text"> 具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%E8%B4%A8%E6%8E%A7-qc"><span class="toc-text"> 1. 数据准备与质控 (QC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%A0%87%E5%87%86%E5%8C%96%E4%B8%8E%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="toc-text"> 2. 标准化与特征选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%99%8D%E7%BB%B4"><span class="toc-text"> 3. 降维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%82%BB%E5%B1%85%E5%9B%BE%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%81%9A%E7%B1%BB"><span class="toc-text"> 4. 邻居图构建与聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%86%E8%83%9E%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A"><span class="toc-text"> 5. 细胞类型注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%B8%8B%E6%B8%B8%E5%88%86%E6%9E%90"><span class="toc-text"> 6. 下游分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="toc-text"> 7. 可视化与验证</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text"> 具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%B8%8E%E8%B4%A8%E6%8E%A7-qc"><span class="toc-text"> 数据准备与质控 (QC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%8C%96%E4%B8%8E%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="toc-text"> 标准化与特征选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4"><span class="toc-text"> 降维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E5%B1%85%E5%9B%BE%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%81%9A%E7%B1%BB"><span class="toc-text"> 邻居图构建与聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%86%E8%83%9E%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A"><span class="toc-text"> 细胞类型注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%B8%B8%E5%88%86%E6%9E%90"><span class="toc-text"> 下游分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="toc-text"> 可视化与验证</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
