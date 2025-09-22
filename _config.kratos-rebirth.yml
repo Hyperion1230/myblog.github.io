@@ -36,7 +36,7 @@ nav:
         - label: Docs
           icon: book
           url: https://wiki.krt.moe
-    - label: Funry
+    - label: Relax
       icon: gamepad
       submenu:
         - label: "2048"
