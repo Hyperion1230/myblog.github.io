@@ -6,7 +6,7 @@
   <link href="https://hyperion1230.github.io/myblog.github.io/atom.xml" rel="self"/>
   
   <link href="https://hyperion1230.github.io/myblog.github.io/"/>
-  <updated>2025-09-22T10:36:21.765Z</updated>
+  <updated>2025-09-22T11:06:13.217Z</updated>
   <id>https://hyperion1230.github.io/myblog.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI Multiomics</title>
+    <link href="https://hyperion1230.github.io/myblog.github.io/posts/AI-Multiomics/"/>
+    <id>https://hyperion1230.github.io/myblog.github.io/posts/AI-Multiomics/</id>
+    <published>2025-09-22T10:53:05.000Z</published>
+    <updated>2025-09-22T11:06:13.217Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ai多组学技术实践"><a class="markdownIt-Anchor" href="#ai多组学技术实践"></a> AI多组学技术实践</h1><p>换一个平台分析从R的<code>seurat</code>换到Python的<code>ScanPy</code></p><p>具体流程以及代码如下：</p><h2 id="数据载入"><a class="markdownIt-Anchor" href="#数据载入"></a> 数据载入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> </span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;ai多组学技术实践&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ai多组学技术实践&quot;&gt;&lt;/a&gt; AI多组学技术实践&lt;/h1&gt;
+&lt;p&gt;换一个平台分析从R的&lt;code&gt;seurat&lt;/code&gt;换到Python的&lt;code&gt;ScanPy&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="AI" scheme="https://hyperion1230.github.io/myblog.github.io/tags/AI/"/>
+    
+    <category term="Multiomics" scheme="https://hyperion1230.github.io/myblog.github.io/tags/Multiomics/"/>
+    
+  </entry>
   
   <entry>
     <title>单细胞scRNA-seq分析思路总结</title>
