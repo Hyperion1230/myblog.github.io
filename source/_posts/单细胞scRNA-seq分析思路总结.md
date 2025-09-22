@@ -31,7 +31,7 @@ tags:
   - `subset`、`filter` 去掉异常细胞。
   - `DoubletFinder` / `Scrublet` 识别双细胞。
 
-{% collapse 具体方法 %}
+{% collapse 具体方法 open %}
 
 ```R
 #TODO
@@ -69,7 +69,7 @@ tags:
 
 - 找出在细胞间变异度最高的一批基因（常用 2000）。
 
-{% collapse 具体方法 %}
+{% collapse 具体方法 open %}
 
 🔬 Seurat 内置的三种方法
 
@@ -123,7 +123,7 @@ tags:
 
 - `Z-score` 标准化基因表达，用于 PCA 等。
 
-{% collapse 'what is Z-score' %}
+{% collapse 'what is Z-score' open %}
 
 **Z-score**（标准分数、标准化值）是统计学里常用的一个指标，表示一个数值偏离平均值多少个标准差。
 
@@ -271,7 +271,7 @@ $$
 
 ------
 
-### PCA + Batch Regressing (经典方法)**
+### **PCA + Batch Regressing (经典方法)**
 
 - **简介**：经典的做法是通过 **回归（regress）** 在主成分（PCA）上去除批次信息。
    你可以在执行 PCA 前后，将批次信息作为回归变量，从数据中去除批次效应。
