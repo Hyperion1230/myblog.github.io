@@ -10,6 +10,7 @@ cover: pic1.png
 tags:
 - 记录
 - kratos
+- Private
 ---
 ## 记录一下使用kratos模板创建个人博客
 

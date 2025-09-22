@@ -136,3 +136,12 @@ deploy:
 aplayer:
   meting: true
   asset_inject: false
+#加密
+encrypt: # hexo-blog-encrypt
+  abstract: This article is encrypted. Please input the password to view.
+  message: Password required.
+  tags:
+  - {name: Private, password: 991230dd!}
+  - {name: Only allowed, password: 147258}
+  wrong_pass_message: Sorry, this password doesn't seem right. Please try again.
+  wrong_hash_message: Sorry, this article cannot be checked, but you can still view the decrypted content.
