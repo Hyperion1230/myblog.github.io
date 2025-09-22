@@ -30,10 +30,10 @@ nav:
     - label: Links
       icon: link
       submenu:
-        - label: 代码仓库
+        - label: github
           icon: code
-          url: https://github.com/Candinya/Kratos-Rebirth
-        - label: 项目文档
+          url: https://github.com/Hyperion1230
+        - label: Docs
           icon: book
           url: https://wiki.krt.moe
     - label: Funry
@@ -56,6 +56,8 @@ footer:
       link: https://github.com/Hyperion1230
     - icon: rss
       link: /myblog.github.io/atom.xml
+    - icon: envelope
+      link: mailto:1092806479@qq.com
   components:
     uptime:
       since: "2025/09/18 13:03:12"
