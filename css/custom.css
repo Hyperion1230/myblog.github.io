@@ -207,6 +207,7 @@ body.scroll-down.nav-up #kratos-desktop-topnav {
 [data-theme="light"] .navigation div,
 [data-theme="light"] #kratos-widget-area .widget {
     background-color: #ffffffed !important;
+    border-radius: 15px
 }
 
 /* 黑暗模式背景色 */
@@ -214,6 +215,7 @@ body.scroll-down.nav-up #kratos-desktop-topnav {
 [data-theme="dark"] .navigation div, 
 [data-theme="dark"] #kratos-widget-area .widget {
     background: #1a1a1aed !important;
+    border-radius: 15px
 }
 
 /* ==================== 页面内容圆角 ==================== */
