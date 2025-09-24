@@ -9,14 +9,14 @@ search:
 
 # 图片配置
 image:
-  favicon: /assets/manbo.png # 站点图标
-  avatar: /images/IMG_5529.GIF # 个人信息挂件上的头像
+  favicon: /myblog.github.io/assets/manbo.png # 站点图标
+  avatar: /myblog.github.io/images/IMG_5529.GIF # 个人信息挂件上的头像
   banner:
-    light: /images/ban.png
-    dark: /images/ban-dark.png
+    light: /myblog.github.io/images/ban.png
+    dark: /myblog.github.io/images/ban-dark.png
   background:
-    light: /images/background-sun.png
-    dark: /images/background.png
+    light: /myblog.github.io/images/background-sun.png
+    dark: /myblog.github.io/images/background.png
 
 # 顶部导航栏配置
 nav:
@@ -55,7 +55,7 @@ footer:
     - icon: github
       link: https://github.com/Hyperion1230
     - icon: rss
-      link: /atom.xml
+      link: /myblog.github.io/atom.xml
     - icon: envelope
       link: mailto:1092806479@qq.com
   components:
@@ -63,7 +63,7 @@ footer:
       since: "2025/09/18 13:03:12"
       text: "本站已运行"
     author:
-      homepage: "https://github.com/Hyperion1230/"
+      homepage: "https://github.com/Hyperion1230/myblog.github.io/"
     additional: # 托管信息等
       - - 由 <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a> 部署
         -  <a href="https://github.io" target="_blank">Github Pages</a> 托管
@@ -153,7 +153,7 @@ visit_count:
     post: ""
 
 posts:
-  default_cover: /images/default.png # 没有头图的文章使用的默认图片
+  default_cover: /myblog.github.io/images/default.png # 没有头图的文章使用的默认图片
   donate: false # 默认是否启用打赏功能
   share: true # 默认是否启用分享功能
   word_count: # 字数统计功能
@@ -170,11 +170,11 @@ posts:
 ################## 额外的注入代码 ##################
 additional_injections:
   head: |
-    <link rel="stylesheet" href="/css/custom.css">
-    <link rel="stylesheet" href="/music/APlayer.min.css">
+    <link rel="stylesheet" href="/myblog.github.io/css/custom.css">
+    <link rel="stylesheet" href="/myblog.github.io/music/APlayer.min.css">
     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-    <link rel="stylesheet" href="/comments/gitalk.css" />
-    <link rel="stylesheet" href="/music/aplayer.css">
+    <link rel="stylesheet" href="/myblog.github.io/comments/gitalk.css" />
+    <link rel="stylesheet" href="/myblog.github.io/music/aplayer.css">
   footer: |
     <script>
     (function() {
@@ -191,6 +191,6 @@ additional_injections:
                             
   after_footer: |
    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script src="/comments/gitalk.js"></script>
-   <script src="/music/APlayer.min.js"></script>
-   <script src="/music/Meting.min.js"></script>
+   <script src="/myblog.github.io/comments/gitalk.js"></script>
+   <script src="/myblog.github.io/music/APlayer.min.js"></script>
+   <script src="/myblog.github.io/music/Meting.min.js"></script>
