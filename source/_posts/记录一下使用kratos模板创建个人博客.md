@@ -256,9 +256,28 @@ body.scroll-down.nav-up #kratos-desktop-topnav {
 
 ![屏幕截图 2025-09-18 165919](pic1.png)
 
+-----
+
+2025年9月24日更新：
+
+安装了hexo-asset-image后发现文章的图都挂了。。。。
+
+debug发现原来是链接地址多出了一个github的库名
+
+第一次尝试修改._config.yml文件的URL
+
+结果是在本地可以显示图片，而部署到github上就不行了
+
+于是对插件进行了修改
+```js
+var beginPos = getPosition(link, '/', 3) + 1;
+//改成
+var beginPos = getPosition(link, '/', 4) + 1;
+```
 
 
 
+图片就加载出来了
 
 
 
