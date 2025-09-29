@@ -5,8 +5,8 @@ toc: true
 donate: true
 share: true
 date: 2025-09-25 10:53:01
-categories: image-20250925105713663
-cover: 
+categories: Unfinished
+cover: image-20250925105713663.png
 tags:
 - AI
 - 记录
