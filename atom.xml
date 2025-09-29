@@ -37,9 +37,9 @@
     
     
     
-    <category term="记录" scheme="https://hyperion1230.github.io/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
-    
     <category term="Vim" scheme="https://hyperion1230.github.io/myblog.github.io/tags/Vim/"/>
+    
+    <category term="记录" scheme="https://hyperion1230.github.io/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -75,7 +75,7 @@
     <link href="https://hyperion1230.github.io/myblog.github.io/posts/Artificial-intelligence-for-multimodal-data-integration-in-oncology-%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     <id>https://hyperion1230.github.io/myblog.github.io/posts/Artificial-intelligence-for-multimodal-data-integration-in-oncology-%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/</id>
     <published>2025-09-24T01:41:21.000Z</published>
-    <updated>2025-09-25T02:54:39.317Z</updated>
+    <updated>2025-09-29T08:53:36.023Z</updated>
     
     <content type="html"><![CDATA[<h1 id="artificial-intelligence-for-multimodal-data-integration-in-oncology-文献阅读"><a class="markdownIt-Anchor" href="#artificial-intelligence-for-multimodal-data-integration-in-oncology-文献阅读"></a> Artificial intelligence for multimodal data integration in oncology 文献阅读</h1><h2 id="ai在肿瘤学中的应用"><a class="markdownIt-Anchor" href="#ai在肿瘤学中的应用"></a> AI在肿瘤学中的应用</h2><p>作者从方法上将AI分类为监督学习<code>supervised</code>，弱监督学习<code>weakly supervised</code>和无监督学习<code>unsupervised</code></p><p><img src="/myblog.github.io/posts/Artificial-intelligence-for-multimodal-data-integration-in-oncology-%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/gr2.jpg" alt="FIG1"></p><h3 id="监督学习"><a class="markdownIt-Anchor" href="#监督学习"></a> 监督学习</h3><p>特点：使用了标注的数据点将输入的数据映射到提前定义的标签中</p><p>例子：</p><p><strong>人工标注</strong></p><blockquote><p>优点：人工标注的优势在于不需要进行特征的计算，能够简化模型结构，降低计算成本。且由于预测使用的特征为人为选择，因此模型具有较高的可解释性（同时带来较低的可迁移性）。</p><p>不足：在特征提取时可能会存在人为偏见产生的偏差，同时对于很多人类无法捕捉到的信息被忽视，常常会导致无法对更深入的特征的捕获。</p></blockquote><p><strong>表示学习方法</strong>（以CNN为例）</p><blockquote><p>通过卷积与池化来提取并压缩特征，同过多次的卷积与池化的交替，提取关键特征（卷积➡️非线性激活➡️池化。。。<em>重复这个过程</em> ）整个过程中卷积层提取特征。</p></blockquote>]]></content>
     
@@ -86,6 +86,8 @@
       
     
     
+    
+    <category term="Unfinished" scheme="https://hyperion1230.github.io/myblog.github.io/categories/Unfinished/"/>
     
     
     <category term="AI" scheme="https://hyperion1230.github.io/myblog.github.io/tags/AI/"/>
