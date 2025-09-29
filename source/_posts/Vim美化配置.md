@@ -5,7 +5,7 @@ toc: true
 donate: true
 share: true
 date: 2025-09-29 15:35:58
-categories:
+categories: new!
 tags:
 - Vim
 - 记录
