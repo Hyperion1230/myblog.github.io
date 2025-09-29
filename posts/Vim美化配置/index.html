@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+    <link rel="icon" href="/myblog.github.io/assets/manbo.png">
+  
+  
+  <title>Vim美化配置 | Hammerbrother的博客</title>
+  <link rel="canonical" href="https://hyperion1230.github.io/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/">
+  <meta name="author" content="Hammerbrother" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="Vim, 记录" />
+  
+  <meta name="description" content="vim美化配置以及插件的使用 不得不说，vim还是太好用啦！ 先上代码：  基础Vim配置 12345678910111213set nocompatibleset backspace&#x3D;indent,eol,startset ts&#x3D;4set nocompatiblesyntax onset mouse-&#x3D;aset rtp+&#x3D;&#x27;$YOUPATH&#x27;+&#x2F;vim&#x2F;share&#x2F;vim&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim美化配置">
+<meta property="og:url" content="https://hyperion1230.github.io/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Hammerbrother的博客">
+<meta property="og:description" content="vim美化配置以及插件的使用 不得不说，vim还是太好用啦！ 先上代码：  基础Vim配置 12345678910111213set nocompatibleset backspace&#x3D;indent,eol,startset ts&#x3D;4set nocompatiblesyntax onset mouse-&#x3D;aset rtp+&#x3D;&#x27;$YOUPATH&#x27;+&#x2F;vim&#x2F;share&#x2F;vim&#x2F;">
+<meta property="og:locale">
+<meta property="og:image" content="https://hyperion1230.github.io/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/image.png">
+<meta property="article:published_time" content="2025-09-29T07:35:58.000Z">
+<meta property="article:modified_time" content="2025-09-29T08:47:23.052Z">
+<meta property="article:author" content="Hammerbrother">
+<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hyperion1230.github.io/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/image.png">
+  
+    <link rel="alternate" href="/myblog.github.io/atom.xml" title="Hammerbrother的博客" type="application/atom+xml">
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/myblog.github.io/css/kr-core.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="highlight-css" href="/myblog.github.io/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+  
+  <link rel="stylesheet" id="theme-light-css" href="/myblog.github.io/css/kr-theme/light.min.css" media="all"></link>
+  <link rel="stylesheet" id="theme-dark-css" href="/myblog.github.io/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
+  <script src="/myblog.github.io/js/kr-theme.min.js"></script>
+  <link rel="stylesheet" id="fontawe-css" href="/myblog.github.io/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="nprogress-css" href="/myblog.github.io/vendors/nprogress@0.2.0/nprogress.css" media="all"></link>
+  
+  
+    <link rel="stylesheet" href="/myblog.github.io/vendors/viewerjs@1.11.6/dist/viewer.min.css"></link>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  
+    <script src="/myblog.github.io/vendors/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+  
+  <!-- 自定义站点横幅和背景 -->
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/myblog.github.io/images/ban.png');
+      }
+      html[data-theme="dark"] .kratos-cover.kratos-cover-2 {
+        background-image: url('/myblog.github.io/images/ban-dark.png');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/myblog.github.io/images/background-sun.png');
+        }
+        html[data-theme="dark"] body.custom-background {
+          background-image: url('/myblog.github.io/images/background.png');
+        }
+      }
+    
+    
+      .widget-kratos-about .photo-background {
+        background-image: url('/images/default.webp');
+      }
+      html[data-theme="dark"] .widget-kratos-about .photo-background {
+        background-image: url('/images/default.webp');
+      }
+    
+  </style>
+
+  <!-- 额外的追加注入项 -->
+  
+    <link rel="stylesheet" href="/myblog.github.io/css/custom.css">
+<link rel="stylesheet" href="/myblog.github.io/music/APlayer.min.css">
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/myblog.github.io/comments/gitalk.css" />
+<link rel="stylesheet" href="/myblog.github.io/music/aplayer.css">
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    <li>
+                                        
+                                            <a href="/myblog.github.io/">
+                                        
+                                            
+                                                <i class="fa fa-home"></i>
+                                            
+                                            Home
+                                        </a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a href="/myblog.github.io/archives/">
+                                        
+                                            
+                                                <i class="fa fa-archive"></i>
+                                            
+                                            Archives
+                                        </a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a>
+                                        
+                                            
+                                                <i class="fa fa-link"></i>
+                                            
+                                            Links
+                                        </a>
+                                        
+                                            <ul class="sub-menu">
+                                                
+                                                    <li>
+                                                        <a target="_blank" rel="noopener" href="https://github.com/Hyperion1230">
+                                                            
+                                                                <i class="fa fa-code"></i>
+                                                            
+                                                            github
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a target="_blank" rel="noopener" href="https://wiki.krt.moe">
+                                                            
+                                                                <i class="fa fa-book"></i>
+                                                            
+                                                            Docs
+                                                        </a>
+                                                    </li>
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a>
+                                        
+                                            
+                                                <i class="fa fa-gamepad"></i>
+                                            
+                                            Relax
+                                        </a>
+                                        
+                                            <ul class="sub-menu">
+                                                
+                                                    <li>
+                                                        <a href="/myblog.github.io/game/2048/index.html">
+                                                            
+                                                                <i class="fa fa-trophy"></i>
+                                                            
+                                                            2048
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/myblog.github.io/game/ball/index.html">
+                                                            
+                                                                <i class="fa fa-futbol-o"></i>
+                                                            
+                                                            Ball
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a href="/myblog.github.io/game/maze/index.html">
+                                                            
+                                                                <i class="fa fa-map-marker"></i>
+                                                            
+                                                            Maze
+                                                        </a>
+                                                    </li>
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/myblog.github.io/">Hammerbrother的博客</a></div>
+                    <div id="kratos-nav-toggle-wrapper" class="nav-toggle">
+                        <a id="kratos-nav-toggle" class="kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/myblog.github.io/">
+                        <h2>Hammerbrother的博客</h2> <br />
+                        <span>欢迎一起交流进步</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+
+
+        
+
+            
+
+            <section class="kr-main-col col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hyperion1230.github.io/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
+            
+                <h1 class="kratos-page-title text-center" itemprop="name headline">Vim美化配置</h1>
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="2025-09-29T07:35:58.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-09-29</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">Hammerbrother</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~6.66K
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text"> vim美化配置以及插件的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80vim%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text"> 基础Vim配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text"> 插件设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">1.3.</span> <span class="toc-text"> 实用的快捷键</span></a></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="vim美化配置以及插件的使用"><a class="markdownIt-Anchor" href="#vim美化配置以及插件的使用"></a> vim美化配置以及插件的使用</h1>
+<p>不得不说，vim还是太好用啦！</p>
+<p>先上代码：</p>
+<h2 id="基础vim配置"><a class="markdownIt-Anchor" href="#基础vim配置"></a> 基础Vim配置</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> nocompatible</span><br><span class="line"><span class="built_in">set</span> backspace=indent,eol,start</span><br><span class="line"><span class="built_in">set</span> ts=4</span><br><span class="line"><span class="built_in">set</span> nocompatible</span><br><span class="line">syntax on</span><br><span class="line"><span class="built_in">set</span> mouse-=a</span><br><span class="line"><span class="built_in">set</span> rtp+=<span class="string">&#x27;$YOUPATH&#x27;</span>+/vim/share/vim/bundle/Vundle.vim</span><br><span class="line">filetype off</span><br><span class="line"><span class="built_in">set</span> hlsearch       <span class="string">&quot; 搜索结果高亮</span></span><br><span class="line"><span class="string">set incsearch      &quot;</span> 输入时即时高亮匹配</span><br><span class="line"><span class="built_in">set</span> cursorline   <span class="string">&quot;高亮当前行</span></span><br><span class="line"><span class="string">set showmatch    &quot;</span>匹配括号</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>有几个比较关键的配置，有些Vim默认设置了<code>set mouse-=a</code>和<code>set backspace=indent,eol,start</code>分别对应的功能为使用鼠标不进入<mark>可视模式</mark>和能够在行中进行Backspace。</p>
+<p>我这边使用的是Vundle进行插件的管理，用Plug也可以，看个人喜好。</p>
+<h2 id="插件设置"><a class="markdownIt-Anchor" href="#插件设置"></a> 插件设置</h2>
+<div class="panel panel-info">
+    <div class="panel-title"><i class="fa fa-info"></i>插件</div>
+    <div class="panel-body">
+        <p>vim好用的前提就是使用正确的插件！</p>
+
+    </div>
+    </div>
+<p>主要使用了以下插件：</p>
+<table>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vundle.vim</td>
+<td>插件管理，伟大无需多言</td>
+</tr>
+<tr>
+<td>nerdtree</td>
+<td>文件结构浏览，还有很多功能十分实用</td>
+</tr>
+<tr>
+<td>vim-airline</td>
+<td>底部标签栏美化（非必需）</td>
+</tr>
+<tr>
+<td>vim-airline-themes</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>python-syntax</td>
+<td>Python语法注释，比原本带的syntax要好不少</td>
+</tr>
+<tr>
+<td>vim-devicons</td>
+<td>在nerdtree中显示文件的图标</td>
+</tr>
+<tr>
+<td>coc.nvim</td>
+<td>实现代码补全的关键</td>
+</tr>
+<tr>
+<td>vim-commentary</td>
+<td>一键注释代码，实用！</td>
+</tr>
+<tr>
+<td>csv.vim</td>
+<td>浏览分隔符文件，一般般</td>
+</tr>
+</tbody>
+</table>
+<p>代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">call vundle#begin(<span class="string">&#x27;You/Path/To/vim/bundle&#x27;</span>)</span><br><span class="line">Plugin <span class="string">&#x27;VundleVim/Vundle.vim&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;preservim/nerdtree&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;vim-airline/vim-airline&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;vim-airline/vim-airline-themes&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;vim-python/python-syntax&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;ryanoasis/vim-devicons&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;neoclide/coc.nvim&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;tpope/vim-commentary&#x27;</span></span><br><span class="line"><span class="string">&quot;Plugin &#x27;dhruvasagar/vim-table-mode&#x27;</span></span><br><span class="line"><span class="string">Plugin &#x27;chrisbra/csv.vim&#x27;</span></span><br><span class="line"><span class="string">call vundle#end()</span></span><br></pre></td></tr></table></figure>
+<p>不同插件的配置如下：</p>
+<p><strong>nerdtree：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;nerdtree配置</span></span><br><span class="line"><span class="string">nnoremap &lt;C-n&gt; :NERDTree&lt;CR&gt;  &quot;</span>快捷键<span class="string">&quot;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-t&gt; :NERDTreeToggle&lt;CR&gt;  &quot;</span>同上<span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span>让nerdtree打开每个文件前先确认其文件类型</span><br><span class="line">augroup FixNERDTreeFiletype</span><br><span class="line">  autocmd!</span><br><span class="line">  autocmd BufEnter * <span class="keyword">if</span> &amp;filetype == <span class="string">&#x27;&#x27;</span> | filetype detect | endif</span><br><span class="line">augroup END</span><br></pre></td></tr></table></figure>
+<p><strong>vim-commentary：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">autocmd FileType python setlocal commentstring=#\ %s</span><br><span class="line">autocmd FileType r setlocal commentstring=#\ %s</span><br><span class="line">autocmd FileType sh,bash,zsh setlocal commentstring=#\ %s</span><br><span class="line">autocmd FileType c,cpp,java setlocal commentstring=//\ %s</span><br><span class="line">autocmd FileType tex setlocal commentstring=%\ %s</span><br><span class="line">autocmd FileType yaml,yml setlocal commentstring=#\ %s</span><br><span class="line">autocmd FileType markdown setlocal commentstring=&lt;!--\ %s\ --&gt;</span><br></pre></td></tr></table></figure>
+<p>让不同类型的文件使用不同的注释方法</p>
+<p><strong>Coc.vim:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;定义一个func 实现！切换的功能</span></span><br><span class="line"><span class="string">function! ToggleCoc()</span></span><br><span class="line"><span class="string">  if get(g:, &#x27;coc_enabled&#x27;, 1)</span></span><br><span class="line"><span class="string">    CocDisable</span></span><br><span class="line"><span class="string">  else</span></span><br><span class="line"><span class="string">    CocEnable</span></span><br><span class="line"><span class="string">  endif</span></span><br><span class="line"><span class="string">endfunction</span></span><br><span class="line"><span class="string">&quot;</span>cocvim配置</span><br><span class="line">nnoremap &lt;C-k&gt; :CocDisable&lt;CR&gt; </span><br><span class="line">inoremap &lt;silent&gt;&lt;<span class="built_in">expr</span>&gt; &lt;TAB&gt;<span class="string">&#x27;Tab循环&#x27;</span></span><br><span class="line">      \ pumvisible() ? <span class="string">&quot;\&lt;C-n&gt;&quot;</span> :</span><br><span class="line">      \ CheckBackspace() ? <span class="string">&quot;\&lt;TAB&gt;&quot;</span> :</span><br><span class="line">      \ coc#refresh()</span><br><span class="line">inoremap &lt;<span class="built_in">expr</span>&gt;&lt;S-TAB&gt; pumvisible() ? <span class="string">&quot;\&lt;C-p&gt;&quot;</span> : <span class="string">&quot;\&lt;C-h&gt;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>! CheckBackspace() abort</span><br><span class="line">  <span class="built_in">let</span> col = col(<span class="string">&#x27;.&#x27;</span>) - 1</span><br><span class="line">  <span class="built_in">return</span> !col || getline(<span class="string">&#x27;.&#x27;</span>)[col - 1]  =~# <span class="string">&#x27;\s&#x27;</span></span><br><span class="line">endfunction</span><br><span class="line"><span class="string">&quot; Enter 确定</span></span><br><span class="line"><span class="string">inoremap &lt;expr&gt; &lt;CR&gt; pumvisible() ? coc#_select_confirm() : &quot;</span>\&lt;CR&gt;<span class="string">&quot;  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> 光标处显示文档</span><br><span class="line">nnoremap &lt;silent&gt; K :call CocActionAsync(<span class="string">&#x27;doHover</span></span><br></pre></td></tr></table></figure>
+<p>通过这个就可以实现类似Vscode的代码提示与补全了</p>
+<p>效果如图：</p>
+<p><img src="/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/image-20250929155947768.png" alt="image-20250929155947768"></p>
+<h2 id="实用的快捷键"><a class="markdownIt-Anchor" href="#实用的快捷键"></a> 实用的快捷键</h2>
+<p>对于Vim而言手不离开键盘才是最关键的😄</p>
+<p>下面提供了一部分个人实用习惯的快捷键，可以自己修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> mapleader=<span class="string">&quot; &quot;</span>   </span><br><span class="line"><span class="string">&quot;设置热键为空格</span></span><br><span class="line"><span class="string">#coc.vim补全提示开关</span></span><br><span class="line"><span class="string">nnoremap &lt;leader&gt;k :call ToggleCoc()&lt;CR&gt;</span></span><br><span class="line"><span class="string">#显示行号</span></span><br><span class="line"><span class="string">nnoremap &lt;leader&gt;n :set nu!&lt;CR&gt;</span></span><br><span class="line"><span class="string">#显示相对行号</span></span><br><span class="line"><span class="string">nnoremap &lt;leader&gt;nn :set relativenumber!&lt;CR&gt;</span></span><br><span class="line"><span class="string">#窗口切换</span></span><br><span class="line"><span class="string">nnoremap &lt;C-h&gt; &lt;C-w&gt;h</span></span><br><span class="line"><span class="string">nnoremap &lt;C-l&gt; &lt;C-w&gt;l</span></span><br><span class="line"><span class="string">nnoremap &lt;C-j&gt; &lt;C-w&gt;j</span></span><br><span class="line"><span class="string">nnoremap &lt;C-k&gt; &lt;C-w&gt;k</span></span><br><span class="line"><span class="string">#快速保存</span></span><br><span class="line"><span class="string">nnoremap &lt;C-s&gt; :w&lt;CR&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-q&gt; :q&lt;CR&gt;</span></span><br><span class="line"><span class="string">#ctrl+/快速注释</span></span><br><span class="line"><span class="string">xmap &lt;silent&gt; &lt;C-_&gt; &lt;Plug&gt;Commentary   </span></span><br><span class="line"><span class="string">nmap &lt;silent&gt; &lt;C-_&gt; &lt;Plug&gt;CommentaryLine</span></span><br><span class="line"><span class="string">#CSV格式</span></span><br><span class="line"><span class="string">nnoremap &lt;leader&gt;t :TableModeEnable&lt;CR&gt;</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<p>有这些配置之后就可以愉快的使用Vim进行coding了！</p>
+<p>最后给一个懒人版：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">set</span> nocompatible</span><br><span class="line"><span class="built_in">set</span> backspace=indent,eol,start</span><br><span class="line"><span class="built_in">set</span> ts=4</span><br><span class="line"><span class="built_in">set</span> nocompatible</span><br><span class="line">syntax on</span><br><span class="line"><span class="built_in">set</span> mouse-=a</span><br><span class="line"><span class="built_in">set</span> rtp+=/mnt/public5/tangyijun/local/vim/share/vim/bundle/Vundle.vim</span><br><span class="line">filetype off</span><br><span class="line"></span><br><span class="line">call vundle#begin(<span class="string">&#x27;/mnt/public5/tangyijun/local/vim/share/vim/bundle&#x27;</span>)</span><br><span class="line">Plugin <span class="string">&#x27;VundleVim/Vundle.vim&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;preservim/nerdtree&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;vim-airline/vim-airline&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;vim-airline/vim-airline-themes&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;vim-python/python-syntax&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;ryanoasis/vim-devicons&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;neoclide/coc.nvim&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;tpope/vim-commentary&#x27;</span></span><br><span class="line"><span class="string">&quot;Plugin &#x27;dhruvasagar/vim-table-mode&#x27;</span></span><br><span class="line"><span class="string">Plugin &#x27;chrisbra/csv.vim&#x27;</span></span><br><span class="line"><span class="string">call vundle#end()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span>nerdtree配置</span><br><span class="line">nnoremap &lt;C-n&gt; :NERDTree&lt;CR&gt;</span><br><span class="line">nnoremap &lt;C-t&gt; :NERDTreeToggle&lt;CR&gt;</span><br><span class="line"><span class="built_in">set</span> hlsearch       <span class="string">&quot; 搜索结果高亮</span></span><br><span class="line"><span class="string">set incsearch      &quot;</span> 输入时即时高亮匹配</span><br><span class="line"><span class="built_in">set</span> cursorline   <span class="string">&quot;高亮当前行</span></span><br><span class="line"><span class="string">set showmatch    &quot;</span>匹配括号</span><br><span class="line"></span><br><span class="line">augroup FixNERDTreeFiletype</span><br><span class="line">  autocmd!</span><br><span class="line">  autocmd BufEnter * <span class="keyword">if</span> &amp;filetype == <span class="string">&#x27;&#x27;</span> | filetype detect | endif</span><br><span class="line">augroup END</span><br><span class="line">autocmd FileType python setlocal commentstring=#\ %s</span><br><span class="line">autocmd FileType r setlocal commentstring=#\ %s</span><br><span class="line">autocmd FileType sh,bash,zsh setlocal commentstring=#\ %s</span><br><span class="line">autocmd FileType c,cpp,java setlocal commentstring=//\ %s</span><br><span class="line">autocmd FileType tex setlocal commentstring=%\ %s</span><br><span class="line">autocmd FileType yaml,yml setlocal commentstring=#\ %s</span><br><span class="line">autocmd FileType markdown setlocal commentstring=&lt;!--\ %s\ --&gt;</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;快捷键映射</span></span><br><span class="line"><span class="string">let mapleader=&quot;</span> <span class="string">&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function! ToggleCoc()</span></span><br><span class="line"><span class="string">  if get(g:, &#x27;coc_enabled&#x27;, 1)</span></span><br><span class="line"><span class="string">    CocDisable</span></span><br><span class="line"><span class="string">  else</span></span><br><span class="line"><span class="string">    CocEnable</span></span><br><span class="line"><span class="string">  endif</span></span><br><span class="line"><span class="string">endfunction</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">nnoremap &lt;leader&gt;k :call ToggleCoc()&lt;CR&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;leader&gt;n :set nu!&lt;CR&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;leader&gt;nn :set relativenumber!&lt;CR&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-h&gt; &lt;C-w&gt;h</span></span><br><span class="line"><span class="string">nnoremap &lt;C-l&gt; &lt;C-w&gt;l</span></span><br><span class="line"><span class="string">nnoremap &lt;C-j&gt; &lt;C-w&gt;j</span></span><br><span class="line"><span class="string">nnoremap &lt;C-k&gt; &lt;C-w&gt;k</span></span><br><span class="line"><span class="string">nnoremap &lt;C-s&gt; :w&lt;CR&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-q&gt; :q&lt;CR&gt;</span></span><br><span class="line"><span class="string">xmap &lt;silent&gt; &lt;C-_&gt; &lt;Plug&gt;Commentary   </span></span><br><span class="line"><span class="string">nmap &lt;silent&gt; &lt;C-_&gt; &lt;Plug&gt;CommentaryLine</span></span><br><span class="line"><span class="string">nnoremap &lt;leader&gt;t :TableModeEnable&lt;CR&gt;</span></span><br><span class="line"><span class="string">&quot;</span>cocvim配置</span><br><span class="line">nnoremap &lt;C-k&gt; :CocDisable&lt;CR&gt; </span><br><span class="line">inoremap &lt;silent&gt;&lt;<span class="built_in">expr</span>&gt; &lt;TAB&gt;</span><br><span class="line">      \ pumvisible() ? <span class="string">&quot;\&lt;C-n&gt;&quot;</span> :</span><br><span class="line">      \ CheckBackspace() ? <span class="string">&quot;\&lt;TAB&gt;&quot;</span> :</span><br><span class="line">      \ coc#refresh()</span><br><span class="line">inoremap &lt;<span class="built_in">expr</span>&gt;&lt;S-TAB&gt; pumvisible() ? <span class="string">&quot;\&lt;C-p&gt;&quot;</span> : <span class="string">&quot;\&lt;C-h&gt;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>! CheckBackspace() abort</span><br><span class="line">  <span class="built_in">let</span> col = col(<span class="string">&#x27;.&#x27;</span>) - 1</span><br><span class="line">  <span class="built_in">return</span> !col || getline(<span class="string">&#x27;.&#x27;</span>)[col - 1]  =~# <span class="string">&#x27;\s&#x27;</span></span><br><span class="line">endfunction</span><br><span class="line"><span class="string">&quot; enter </span></span><br><span class="line"><span class="string">inoremap &lt;expr&gt; &lt;CR&gt; pumvisible() ? coc#_select_confirm() : &quot;</span>\&lt;CR&gt;<span class="string">&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> 显示文档</span><br><span class="line">nnoremap &lt;silent&gt; K :call CocActionAsync(<span class="string">&#x27;doHover</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<p>再附上一个快捷键对照表</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="img"></p>
+<p>详细链接：<a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/all-vim-cheatsheat.html">史上最全Vim快捷键键位图（入门到进阶） | 菜鸟教程</a></p>
+</div>
+        </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+                <div class="post-actions text-center clearfix" id="post-actions">
+                
+                
+                    <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/myblog.github.io/tags/Vim/" rel="tag">Vim</a>, <a class="tag-none-link" href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-09-29T08:47:23.052Z" itemprop="dateModified">最后编辑：2025-09-29</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" Artificial intelligence Deeplearning 学习笔记" href="/myblog.github.io/posts/Deeplearning-学习笔记/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+        <div class="comment-post">
+            <div id="gitalk-container" class="kr-comments lazy-load" data-path="/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/" data-path-hash="3f2f89536524e89ae381351ea29c7c14"></div>
+        </div>
+    
+</article>
+
+        
+
+            </section>
+
+            
+                
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/myblog.github.io/images/IMG_5529.GIF" alt="Hammerbrother" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">Have a good time!!</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/myblog.github.io/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                7
+            </span>
+        </a>
+        <a class="meta-item" href="/myblog.github.io/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                2
+            </span>
+        </a>
+        <a class="meta-item" href="/myblog.github.io/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                10
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text"> vim美化配置以及插件的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80vim%E9%85%8D%E7%BD%AE"><span class="toc-text"> 基础Vim配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE"><span class="toc-text"> 插件设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text"> 实用的快捷键</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/image-20250925105713663/">image-20250925105713663</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/new/">new!</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/myblog.github.io/tags/AI/" style="font-size: 0.7em;">AI</a> <a href="/myblog.github.io/tags/Multiomics/" style="font-size: 0.6em;">Multiomics</a> <a href="/myblog.github.io/tags/Private/" style="font-size: 0.6em;">Private</a> <a href="/myblog.github.io/tags/Vim/" style="font-size: 0.6em;">Vim</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 0.6em;">hexo</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 0.6em;">kratos</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 0.6em;">scRNA-seq</a> <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 0.6em;">单细胞</a> <a href="/myblog.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 0.6em;">文献阅读</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 0.8em;">记录</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/"><i class="fa fa-book"></i> Vim美化配置</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/myblog.github.io/posts/Deeplearning-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa fa-book"></i> Artificial intelligence Deeplearning 学习笔记</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/myblog.github.io/posts/Artificial-intelligence-for-multimodal-data-integration-in-oncology-%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><i class="fa fa-book"></i> Artificial intelligence for multimodal data integration in oncology 文献阅读</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/myblog.github.io/posts/AI-Multiomics/"><i class="fa fa-book"></i> AI Multiomics</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/myblog.github.io/posts/%E5%8D%95%E7%BB%86%E8%83%9EscRNA-seq%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/"><i class="fa fa-book"></i> 单细胞scRNA-seq分析思路总结</a>
+            
+          
+        
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+            
+
+        
+
+                </div>
+    </div>
+</div>
+
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                            <li>
+                                <a href="https://github.com/Hyperion1230" target="_blank" rel="nofollow">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="/myblog.github.io/atom.xml" target="_blank" rel="nofollow">
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="mailto:1092806479@qq.com" target="_blank" rel="nofollow">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2025 Hammerbrother的博客 版权所有.</li>
+                            <li>本站已运行<span id="kr-since">Loading...</span></li>
+                        </div>
+                        <div>
+                            <!-- <li>自豪地使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li> -->
+                            <li>站点由 <a href="https://github.com/Hyperion1230/myblog.github.io/" target="_blank">Hammerbrother</a> 用 <i class="fa fa-heart" style="color:#d43f57"></i> 搭建</li>
+                        </div>
+                        <!-- 额外的追加注入项 -->
+                        
+                            <div>
+                                
+                                    <li>由 <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a> 部署</li>
+                                
+                                    <li><a href="https://github.io" target="_blank">Github Pages</a> 托管</li>
+                                
+                            </div>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/myblog.github.io/search">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                <div class="box theme-box" id="theme-toggle">
+                    <span class="fa fa-adjust"></span>
+                </div>
+            </div>
+            <div id="gotop-box" class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+
+    <div id="kr-donate-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseDonateModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-bitcoin"></i>
+            </div>
+            <div class="kr-modal-title">赞助喵</div>
+            <button class="kr-modal-close" onclick="krCloseDonateModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-donate-message">非常感谢您的喜欢！ <i class="fa fa-heart" style="color:#d43f57"></i></div>
+            <div class="kr-donate-qr" id="kr-donate-qr">
+                
+                    <img class="kr-donate-placeholder" src="https://dev.krt.moe/demo-assets/donate.webp" alt="赞助喵" />
+                
+            </div>
+            <div class="kr-donate-platforms">
+                
+                    
+                        <button class="kr-donate-platform-button" style="color: skyblue;" title="模拟支付" onclick="krDonateModalShowPlatformQR('example_payment', 'skyblue')">
+                            <i class="fa fa-credit-card"></i>
+                        </button>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/myblog.github.io/js/kr-modal/donate.min.js"></script>
+
+
+
+
+    <div id="kr-share-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseShareModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-share-alt"></i>
+            </div>
+            <div class="kr-modal-title">Share this moment！</div>
+            <button class="kr-modal-close" onclick="krCloseShareModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-share-message">好东西要和大家分享！</div>
+            <div class="kr-share-qr" id="kr-share-qr"></div>
+            <div class="kr-share-platforms">
+                
+                    <button class="kr-share-platform-button" style="color: #62b6e7;" title="喵窝" onclick="krShareModalOpenPlatform('https://nya.one/share?text=%3E%20$TITLE%0A%3E%0A%3E%20$SUMMARY%0A----%20$SITE%0A%0A$URL')">
+                        <svg fill="currentColor" width="18" height="18" viewBox="0 0 329 388"><path d="M0,36.226c0,-19.993 16.233,-36.226 36.226,-36.226c13.788,0 25.787,7.719 31.908,19.068l188.366,229.845l0,-111.259c-6.356,5.508 -14.645,8.843 -23.707,8.843c-19.994,0 -36.226,-16.232 -36.226,-36.226c-0,-8.551 2.968,-16.413 7.93,-22.613l-0.015,-0.013l56.614,-69.08c6.2,-11.073 18.047,-18.565 31.63,-18.565c19.994,0 36.227,16.233 36.227,36.226l-0,314.644c-0,19.994 -16.233,36.226 -36.227,36.226c-13.166,0 -24.701,-7.039 -31.044,-17.555l-189.229,-230.899l-0,212.228c-0,19.994 -16.233,36.226 -36.227,36.226c-19.993,0 -36.226,-16.232 -36.226,-36.226l0,-314.644Z" /></svg>
+                    </button>
+                
+                    <button class="kr-share-platform-button" style="color: #12B7F5;" title="QQ" onclick="krShareModalOpenPlatform('https://connect.qq.com/widget/shareqq/index.html?url=$URL&title=$TITLE&desc=&summary=$SUMMARY&site=$SITE')">
+                        <i class="fa fa-qq"></i>
+                    </button>
+                
+                    <button class="kr-share-platform-button" style="color: #07c160;" title="微信" onclick="krShareModalOpenPlatform('https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=$URL')">
+                        <i class="fa fa-weixin"></i>
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/myblog.github.io/js/kr-modal/share.min.js"></script>
+
+
+
+<!-- 额外的追加注入项 -->
+
+    <script>
+(function() {
+  var hour = new Date().getHours();
+      var isDark = hour >= 18 || hour < 6;
+        if (isDark) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+                    }
+                    })();
+                    </script>
+<meting-js server="netease" type="playlist" id="12511958644" fixed="true" order="random"></meting-js>
+                        
+
+
+
+        <script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/myblog.github.io/";
+</script>
+
+
+  <script defer src="/myblog.github.io/vendors/nprogress@0.2.0/nprogress.js"></script>
+
+
+
+  <script defer src="/myblog.github.io/vendors/viewerjs@1.11.6/dist/viewer.min.js"></script>
+
+
+<script defer src="/myblog.github.io/js/kr-core.min.js"></script>
+
+
+  <script defer src="/myblog.github.io/js/kr-pjax.min.js"></script>
+
+
+<!-- 额外的追加注入项 -->
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/myblog.github.io/comments/gitalk.js"></script>
+<script src="/myblog.github.io/music/APlayer.min.js"></script>
+<script src="/myblog.github.io/music/Meting.min.js"></script>
+
+
+
+    </body>
+</html>
