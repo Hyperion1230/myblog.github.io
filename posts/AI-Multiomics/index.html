@@ -17,21 +17,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="AI, Multiomics" />
+    <meta name="keywords" content="Multiomics, Single cell" />
   
-  <meta name="description" content="AI多组学技术实践 换一个平台分析从R的seurat换到Python的ScanPy 先看几篇文献了解一下   Artificial intelligence for multimodal data integration in oncology Artificial Intelligence in Molecular Medicine   具体流程以及代码如下：  数据载入 1import">
+  <meta name="description" content="单细胞多组学技术实践 本文档主要分为实践与理论两个部分，在实践部分会post上部分代码，建议阅读顺序为先理论后实践！  理论分析  知识点： Gene activity matrix：基因活性矩阵，是对 scATAC-seq 峰的计数进行总结，利用观察到的基因启动子和增强子处的reads，代表一个合成的 scRNA-seq 数据集，以便用于后续整合。（间接性与细胞异质性） Multimodal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI Multiomics">
 <meta property="og:url" content="https://hyperion1230.github.io/myblog.github.io/posts/AI-Multiomics/index.html">
 <meta property="og:site_name" content="Hammerbrother的博客">
-<meta property="og:description" content="AI多组学技术实践 换一个平台分析从R的seurat换到Python的ScanPy 先看几篇文献了解一下   Artificial intelligence for multimodal data integration in oncology Artificial Intelligence in Molecular Medicine   具体流程以及代码如下：  数据载入 1import">
+<meta property="og:description" content="单细胞多组学技术实践 本文档主要分为实践与理论两个部分，在实践部分会post上部分代码，建议阅读顺序为先理论后实践！  理论分析  知识点： Gene activity matrix：基因活性矩阵，是对 scATAC-seq 峰的计数进行总结，利用观察到的基因启动子和增强子处的reads，代表一个合成的 scRNA-seq 数据集，以便用于后续整合。（间接性与细胞异质性） Multimodal">
 <meta property="og:locale">
+<meta property="og:image" content="https://hyperion1230.github.io/myblog.github.io/posts/AI-Multiomics/image-20251022132956071.png">
 <meta property="article:published_time" content="2025-09-22T10:53:05.000Z">
-<meta property="article:modified_time" content="2025-10-02T09:09:06.051Z">
+<meta property="article:modified_time" content="2025-10-22T07:14:55.299Z">
 <meta property="article:author" content="Hammerbrother">
-<meta property="article:tag" content="AI">
 <meta property="article:tag" content="Multiomics">
+<meta property="article:tag" content="Single cell">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hyperion1230.github.io/myblog.github.io/posts/AI-Multiomics/image-20251022132956071.png">
   
     <link rel="alternate" href="/myblog.github.io/atom.xml" title="Hammerbrother的博客" type="application/atom+xml">
   
@@ -264,7 +266,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            199
+                            ~9.34K
                         
                         字
                     </li>
@@ -278,12 +280,250 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ai%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.</span> <span class="toc-text"> AI多组学技术实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%BD%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text"> 数据载入</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.</span> <span class="toc-text"> 单细胞多组学技术实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text"> 理论分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 知识点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 配对数据分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E9%87%8D%E7%82%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 非配对数据分析方法（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A5%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 该领域研究进展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text"> 目前思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.0.1.</span> <span class="toc-text"> 流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text"> 1️⃣数据准备</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE"><span class="toc-number">1.2.0.2.</span> <span class="toc-text"> 关键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%BD%E5%85%A5"><span class="toc-number">1.2.0.3.</span> <span class="toc-text"> 数据载入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reference"><span class="toc-number">2.</span> <span class="toc-text"> Reference</span></a></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h1 id="ai多组学技术实践"><a class="markdownIt-Anchor" href="#ai多组学技术实践"></a> AI多组学技术实践</h1>
-<p>换一个平台分析从R的<code>seurat</code>换到Python的<code>ScanPy</code></p>
+            <div itemprop="articleBody"><h1 id="单细胞多组学技术实践"><a class="markdownIt-Anchor" href="#单细胞多组学技术实践"></a> 单细胞多组学技术实践</h1>
+<p>本文档主要分为实践与理论两个部分，在实践部分会post上部分代码，建议阅读顺序为先理论后实践！</p>
+<h2 id="理论分析"><a class="markdownIt-Anchor" href="#理论分析"></a> 理论分析</h2>
+<h3 id="知识点"><a class="markdownIt-Anchor" href="#知识点"></a> 知识点：</h3>
+<p><code>Gene activity matrix</code>：基因活性矩阵，是对 scATAC-seq 峰的计数进行总结，利用观察到的基因启动子和增强子处的reads，代表一个合成的 scRNA-seq 数据集，以便用于后续整合。（间接性与细胞异质性）</p>
+<p><code>Multimodal measurements</code>：多模态测量，可以在同一细胞中探测不同的分子特征，目前较少数据。</p>
+<p><code>Manifold</code>: 流形,指高维数据在低维空间中呈现的潜在几何结构。</p>
+<p><code>ARI(Adjusted Rand Index)</code>: 兰德指数，<strong>衡量聚类结果与真实类别标签一致性的常用评价指标</strong>，核心作用是量化 “聚类划分” 与 “已知真实分类” 之间的吻合程度，尤其适用于单细胞数据分析、机器学习等需要评估聚类效果的场景。</p>
+<hr>
+<p>由于配对数据的获得比较（<span class="blur">非常</span>）困难，与此同时我们现有大量的相似或者相近的非配对数据存在，因此对于这部分数据的利用在现在看来尤为关键！</p>
+<h3 id="配对数据分析方法"><a class="markdownIt-Anchor" href="#配对数据分析方法"></a> 配对数据分析方法</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Algorithm算法</th>
+<th style="text-align:left">Language语言</th>
+<th style="text-align:left">Modality and technology模态与技术</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">MOFA+ [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0041">41</a>]</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">RNA expression + DNA methylation + chromatin <strong>accessibility (scNMT-seq) RNA 表达 + DNA 甲基化 + 染色质可及性（scNMT-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">BABEL [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0042">42</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (10× Genomics; SNARE-seq; SHARE-seq); RNA expression + protein epitope (CITE-seq) <strong>RNA 表达+染色质可及性（10× Genomics；SNARE-seq；SHARE-seq）；RNA 表达+蛋白表位（CITE-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Seurat v4 [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0043">43</a>]</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">RNA expression + protein epitope (CITE-seq) <strong>RNA 表达+蛋白表位（CITE-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">scAI [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0044">44</a>]</td>
+<td style="text-align:left">MATLAB</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (sci-CAR); <strong>RNA 表达+染色质可及性（sci-CAR）；</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">R</td>
+<td style="text-align:left">RNA expression + DNA methylation (scM&amp;T-seq) RNA 表达+DNA 甲基化（scM&amp;T-seq）</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">DCCA [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0045">45</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + DNA methylation (scNMT-seq); scATAC-seq + scRNA-seq (SNARE-seq; SHARE-seq; 10× Genomics) <strong>RNA 表达 + DNA 甲基化（scNMT-seq）；scATAC-seq + scRNA-seq（SNARE-seq；SHARE-seq；10× Genomics）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">scDEC [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0046">46</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (10× Genomics) <strong>RNA 表达+染色质可及性（10× Genomics）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Schema [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0047">47</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (sci-CAR; 10× Genomics) <strong>RNA 表达+染色质可及性（sci-CAR；10× Genomics）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">scMVAE [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0048">48</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (SNARE-seq; scCAT-seq) <strong>RNA 表达+染色质可及性（SNARE-seq；scCAT-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">DAVAE [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0049">49</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (10× Genomics) <strong>RNA 表达+染色质可及性（10× Genomics）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">NIC [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0050">50</a>]</td>
+<td style="text-align:left">MATLAB</td>
+<td style="text-align:left">RNA expression + chromatin accessibility <strong>RNA 表达+染色质可及性</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">scMVP [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0050">50</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (sci-CAR; paired-seq; SNARE-seq; SHARE-seq) <strong>RNA 表达+染色质可及性（sci-CAR；paired-seq；SNARE-seq；SHARE-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">SMILE [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0052">52</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (SNARE-seq; sci-CAR; SHARE-seq); DNA methylation + chromosome structure data <strong>RNA 表达 + 染色质可及性（SNARE-seq；sci-CAR；SHARE-seq）；DNA 甲基化 + 染色体结构数据</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="非配对数据分析方法重点"><a class="markdownIt-Anchor" href="#非配对数据分析方法重点"></a> <mark>非配对数据分析方法</mark>（重点）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Alogorithm算法</th>
+<th style="text-align:left">Language语言</th>
+<th style="text-align:left">Modality and technology模态与技术</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GULER [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0051">51</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (sci-CAR; SNARE-seq; scATAC-seq) <strong>RNA 表达+染色质可及性（sci-CAR；SNARE-seq；scATAC-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">MATCHER [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0053">53</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility; RNA expression + DNA methylation(scM&amp;T-seq; sc-GEM); RNA expression + chromatin immunoprecipitation sequence <strong>RNA 表达 + 染色质可及性；RNA 表达 + DNA 甲基化（scM&amp;T-seq；sc-GEM）；RNA 表达 + 染色质免疫沉淀测序</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Seurat v3 [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0054">54</a>]</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (scRNA-seq + scATAC-seq; SMART-seq2 + scATAC-seq; SMART-seq2 + sci-ATAC-seq1) <strong>RNA 表达+染色质可及性（scRNA-seq+scATAC-seq；SMART-seq2+scATAC-seq；SMART-seq2+sci-ATAC-seq1）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Liger [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0055">55</a>]</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">RNA expression + DNA methylation; <strong>RNA 表达 + DNA 甲基化；</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">CoupleNMF [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0031">31</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (SMART-seq + scATAC-seq) <strong>RNA 表达+染色质可及性（SMART-seq+scATAC-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">scACE [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0056">56</a>]</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">RNA expression + chromatin accessibility <strong>RNA 表达+染色质可及性</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">scAMACE [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0057">57</a>]</td>
+<td style="text-align:left">R、Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility <strong>RNA 表达+染色质可及性</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">scGCN [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0058">58</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (sci-CAR; 10× Genomics; scRNA-seq + sci-ATAC-seq) <strong>RNA 表达+染色质可及性（sci-CAR；10× Genomics；单细胞 RNA 测序+单细胞 ATAC 测序）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">UnionCom [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0059">59</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + DNA methylation (sc-GEM); RNA expression + DNA methylation + chromatin accessibility (scNMT-seq) <strong>RNA 表达+DNA 甲基化（sc-GEM）；RNA 表达+DNA 甲基化+染色质可及性（scNMT-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">CoupleCoC [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0060">60</a>]</td>
+<td style="text-align:left">MATLAB</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (scATAC-seq + scRNA-seq; sci-ATAC-seq + scRNA-seq); RNA expression + DNA methylation (scRNA-seq + snmC-seq) <strong>RNA 表达+染色质可及性（scATAC-seq + scRNA-seq；sci-ATAC-seq + scRNA-seq）；RNA 表达+DNA 甲基化（scRNA-seq + snmC-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">MMD-MA [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0061">61</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + DNA methylation (scM&amp;T-seq) <strong>RNA 表达+DNA 甲基化（scM&amp;T-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">MultiMAP [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0062">62</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility <strong>RNA 表达+染色质可及性</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">scJoint [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0063">63</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (scRNA-seq + sci-ATAC-seq; scRNA-seq + scATAC-seq; SNARE-seq); multimodal data (CITE-seq + ASAP-seq) <strong>RNA 表达+染色质可及性（scRNA-seq+sci-ATAC-seq；scRNA-seq+scATAC-seq；SNARE-seq）；多模态数据（CITE-seq+ASAP-seq）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Pamona [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0064">64</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + DNA methylation (sc-GEM); RNA expression + DNA methylation + chromatin accessibility (scNMT-seq); RNA expression + chromatin accessibility (SNARE-seq; 10× Genomics) <strong>RNA 表达+DNA 甲基化（sc-GEM）；RNA 表达+DNA 甲基化+染色质可及性（scNMT-seq）；RNA 表达+染色质可及性（SNARE-seq；10× Genomics）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">uniPort [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0065">65</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility (scRNA-seq + scATAC-seq) <strong>RNA 表达+染色质可及性（单细胞 RNA 测序+单细胞 ATAC 测序）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">VIPCCA [<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0066">66</a>]</td>
+<td style="text-align:left">Python</td>
+<td style="text-align:left">RNA expression + chromatin accessibility + DNA methylation (scNMT-seq; scRNA-seq + sci-ATAC-seq + sc-methylation data) <strong>RNA 表达+染色质可及性+DNA 甲基化（单细胞 NMT 测序；单细胞 RNA 测序+sci-ATAC 测序+单细胞甲基化数据）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>from <a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0018">https://onlinelibrary.wiley.com/doi/10.1002/qub2.91#qub291-bib-0018</a></p>
+</blockquote>
+<div class="alert alert-info">
+  <div class="icon"><i class="fa fa-info"></i></div>
+  <div class="text">
+  <p>接下来我们重点关注的是非配对数据的整合</p>
+
+  </div>
+  </div>
+<h3 id="该领域研究进展"><a class="markdownIt-Anchor" href="#该领域研究进展"></a> 该领域研究进展</h3>
+<blockquote>
+<p>单细胞 RNA 测序（scRNA-seq）测量单个细胞中的基因表达，而单核 ATAC 测序（snATAC-seq）量化单个核中的染色质可及性。这两种数据类型提供了解码细胞类型和状态的信息。然而，当单独分析时，它们有时会在细胞类型/状态分配方面产生相互矛盾的结果。由于这两种模态反映了相同的潜在生物学，因此其能力受到损害。最近，从同一核中测量基因表达和染色质可及性已成为可能。这种成对数据使得可以直接建模两种模态之间的关系。鉴于大量单模态数据的可用性，将成对和无成对的单模态数据集整合起来，以获得对细胞复杂性的全面了解，是非常有吸引力的。</p>
+<p><a target="_blank" rel="noopener" href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-03073-x">基准算法：无配对和配对单细胞 RNA 测序与 ATAC 测序数据的联合整合 | 基因组生物学 | 完整内容 — Benchmarking algorithms for joint integration of unpaired and paired single-cell RNA-seq and ATAC-seq data | Genome Biology | Full Text</a></p>
+</blockquote>
+<p>现有的整合来自非同一批次细胞的数据的方法大致分为以下四类：</p>
+<ul>
+<li><strong>流型对齐</strong></li>
+<li><strong>矩阵分解（Liger ，coupledNMF）</strong></li>
+<li><strong>跨模态领近细胞相关性（Seurat）</strong></li>
+<li><strong>NN</strong></li>
+</ul>
+<p>对于第一第三种方法，不适合于过大的数据集整合，第二种方法具有较好的准确度但是对于计算量的要求也非常大，第四种方法比较折中，是目前较多考虑的方法。</p>
+<p>下图为GLUE的测试结果：</p>
+<p><img src="/myblog.github.io/posts/AI-Multiomics/image-20251022132956071.png" alt="image-20251022132956071"></p>
+<hr>
+<h2 id="目前思路"><a class="markdownIt-Anchor" href="#目前思路"></a> 目前思路</h2>
+<h4 id="流程"><a class="markdownIt-Anchor" href="#流程"></a> 流程</h4>
+<h5 id="1️⃣数据准备"><a class="markdownIt-Anchor" href="#1️⃣数据准备"></a> 1️⃣数据准备</h5>
+<p>对于单细胞转录组（scRNA-seq）数据而言，其得到的原始数据矩阵是包含了很多系统噪音与随机性噪音的，为了减少这部分噪音对生物生物信号的掩盖，我们需要对这部分数据进行整理，主要包括以下步骤</p>
+<p>1 质量控制</p>
+<blockquote>
+<p>大多数分析任务假设每个液滴都含有来自完整单个细胞的 RNA。这一假设常因细胞质量差、游离 RNA 污染或捕获多个细胞而被违反。检测到的<strong>基因数量少</strong>、<strong>计数深度低</strong>以及<strong>线粒体计数比例高</strong>的细胞通常被称为<strong>低质量细胞</strong>，因为它们可能代表膜破裂的死亡细胞。</p>
+</blockquote>
+<p>通过手动设置阈值或基于中位数绝对偏差数量的样本特异性自动过滤来识别和过滤。这些指标被综合考虑，以防止对细胞信号的误判。<strong>质量控制是在样本水平上进行的，因为阈值在不同样本之间可能差异很大。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>游离 RNA</strong> 可能存在于细胞溶液中，并在文库构建过程中被分配到细胞的原生 RNA 中。环境 RNA 污染会导致细胞类型特异性标记基因转录本在其他细胞群体中也可检测到，从而将不同的细胞群体混合在一起。<strong>空滴和双滴</strong>（含有两个细胞的滴）违反了每个滴只含有单个细胞的假设。由不同细胞类型形成的双滴（异型双滴）难以注释，并可能导致错误的细胞类型标签。常见的双滴检测方法通过组合两个随机采样的细胞，并将它们与测量的细胞进行比较来生成人工双滴。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<p>在对数据进行初步的质量控制后，我们需要进一步的对测序过程与细胞生物学差异带来的随机性进行矫正。</p>
+<blockquote>
+<p>细胞由于 mRNA 含量差异（细胞大小）或测序过程中的纯随机性，可能具有不同数量的基因计数。计数标准化使细胞特征具有可比性。后续的方差稳定化确保异常值特征对整体数据结构的影响有限。</p>
+<p><strong>移位的对数转换</strong>表现良好，但不应将其用于每百万计数作为输入，因为它反映了一种不切实际的过度分散。</p>
+<p><strong>公共因子</strong>对所有基因进行缩放，人们假设由于细胞大小导致的计数深度差异可以忽略不计，然而对于异质性 scRNA-seq 数据集（<em>数据集由具有非相同细胞特性的不同细胞类型组成</em>），则定义每个基因的统计量可能不准确。</p>
+<p><strong>Scran标准化</strong>通过合并具有相似计数深度的细胞，并使用基因的线性回归估计池大小因子，旨在最小化这个问题。</p>
+<p><strong>皮尔逊残差</strong>的解析近似，该方法将测序深度作为协变量拟合广义线性模型以获得转换计数矩阵。<mark>归一化方法应根据后续分析任务仔细选择。移位对数被证明在后续降维中更有效地稳定方差，Scran 在批次校正任务中表现良好，解析皮尔逊残差更适合生物变量基因的选择和稀有细胞身份的识别。</mark></p>
+</blockquote>
+<p>因此我们需要对数据进行标准化操作，使得所有的细胞数据间能够进行比较。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<p>如果数据来源于多个不同的技术重复，那我们应该在分析前（对同一实验处理组内）进行去除批次效应，确保其不会影响我们观察到的生物学现象。</p>
+<blockquote>
+<p>**主成分分析(PCA)**和 Harmony等线性嵌入模型在具有明显批次结构的简单整合任务中表现出色，适用于批次校正。<strong>scANVI</strong>可以整合细胞类型标签，这有利于保留生物学变异。根据整合任务的复杂性，例如图谱整合，深度学习方法如 <strong>scANVI、scVI</strong>和 <strong>scGen</strong>以及线性嵌入模型如 <strong>Scanorama</strong>表现最佳，而<mark>对于较简单的整合任务，Harmony是首选方法。</mark></p>
+</blockquote>
+<h4 id="关键"><a class="markdownIt-Anchor" href="#关键"></a> 关键</h4>
+<p>先尝试用</p>
+<blockquote>
+<p>A single-cell rice atlas integrates multi-species data to reveal cis-regulatory evolution</p>
+</blockquote>
+<p>的数据来对非配对的这个多组学整合进行实验</p>
+<p>换几个平台分析从R的<code>seurat</code>换到Python的<code>ScanPy</code></p>
 <p>先看几篇文献了解一下</p>
 <blockquote>
 <ol>
@@ -292,8 +532,23 @@
 </ol>
 </blockquote>
 <p>具体流程以及代码如下：</p>
-<h2 id="数据载入"><a class="markdownIt-Anchor" href="#数据载入"></a> 数据载入</h2>
+<h4 id="数据载入"><a class="markdownIt-Anchor" href="#数据载入"></a> 数据载入</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> </span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
+<p>1.Marand, A. P., Chen, Z., Gallavotti, A. &amp; Schmitz, R. J. A cis-regulatory atlas in maize at single-cell resolution. <em>Cell</em> <strong>184</strong>, 3041-3055.e21 (2021).</p>
+<p>2.Marand, A. P. <em>et al.</em> The genetic architecture of cell type–specific cis regulation in maize. <em>Science</em> <a target="_blank" rel="noopener" href="https://doi.org/10.1126/science.ads6601">https://doi.org/10.1126/science.ads6601</a> (2025) doi:<a target="_blank" rel="noopener" href="https://doi.org/10.1126/science.ads6601">10.1126/science.ads6601</a>.</p>
+<p>3.Yan, H. <em>et al.</em> A single-cell rice atlas integrates multi-species data to reveal cis-regulatory evolution. <em>Nat. Plants</em> 1–22 (2025) doi:<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41477-025-02106-6">10.1038/s41477-025-02106-6</a>.</p>
+<p>4.Kan, Y. <em>et al.</em> A comparison of integration methods for single-cell RNA sequencing data and ATAC sequencing data. <em>Quantitative Biology</em> <strong>13</strong>, e91 (2025).</p>
+<p>5.Lin, Y. <em>et al.</em> scJoint integrates atlas-scale single-cell RNA-seq and ATAC-seq data with transfer learning. <em>Nat Biotechnol</em> <strong>40</strong>, 703–710 (2022).</p>
+<p><a target="_blank" rel="noopener" href="http://6.Ma">6.Ma</a>, S. <em>et al.</em> Chromatin Potential Identified by Shared Single-Cell Profiling of RNA and Chromatin. <em>Cell</em> <strong>183</strong>, 1103-1116.e20 (2020).</p>
+<p>7.Zhu, C. <em>et al.</em> An ultra high-throughput method for single-cell joint analysis of open chromatin and transcriptome. <em>Nat Struct Mol Biol</em> <strong>26</strong>, 1063–1070 (2019).</p>
+<p>8.Liu, L. <em>et al.</em> Deconvolution of single-cell multi-omics layers reveals regulatory heterogeneity. <em>Nat Commun</em> <strong>10</strong>, 470 (2019).</p>
+<p>9.Chen, J., Xiao, W., Zhang, E. &amp; Chen, X. Abstract 4943: Benchmarking unpaired single-cell RNA and single-cell ATAC integration. <em>Cancer Res</em> <strong>84</strong>, 4943 (2024).</p>
+<p>10.Fu, S. <em>et al.</em> Benchmarking single-cell multi-modal data integrations. <em>Nat Methods</em> 1–12 (2025) doi:<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41592-025-02737-9">10.1038/s41592-025-02737-9</a>.</p>
+<p>11.Lee, M. Y. Y., Kaestner, K. H. &amp; Li, M. Benchmarking algorithms for joint integration of unpaired and paired single-cell RNA-seq and ATAC-seq data. <em>Genome Biology</em> <strong>24</strong>, 244 (2023).</p>
+<p>12.Cao, Z.-J. &amp; Gao, G. Multi-omics single-cell data integration and regulatory inference with graph-linked embedding. <em>Nat Biotechnol</em> <strong>40</strong>, 1458–1466 (2022).</p>
+<p>13.Heumos, L. <em>et al.</em> Best practices for single-cell analysis across modalities. <em>Nat Rev Genet</em> <strong>24</strong>, 550–572 (2023).</p>
 </div>
         </div>
         
@@ -311,10 +566,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/myblog.github.io/tags/AI/" rel="tag">AI</a>, <a class="tag-none-link" href="/myblog.github.io/tags/Multiomics/" rel="tag">Multiomics</a>
+                    <a class="tag-none-link" href="/myblog.github.io/tags/Multiomics/" rel="tag">Multiomics</a>, <a class="tag-none-link" href="/myblog.github.io/tags/Single-cell/" rel="tag">Single cell</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-10-02T09:09:06.051Z" itemprop="dateModified">最后编辑：2025-10-02</time>
+                    <time datetime="2025-10-22T07:14:55.299Z" itemprop="dateModified">最后编辑：2025-10-22</time>
                 </div>
             </div>
         </footer>
@@ -367,7 +622,7 @@
                 文章
             </span>
             <span class="count">
-                8
+                9
             </span>
         </a>
         <a class="meta-item" href="/myblog.github.io/categories/">
@@ -375,7 +630,7 @@
                 分类
             </span>
             <span class="count">
-                3
+                4
             </span>
         </a>
         <a class="meta-item" href="/myblog.github.io/tags/">
@@ -383,7 +638,7 @@
                 标签
             </span>
             <span class="count">
-                11
+                12
             </span>
         </a>
     </div>
@@ -399,14 +654,14 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ai%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="toc-text"> AI多组学技术实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%BD%E5%85%A5"><span class="toc-text"> 数据载入</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="toc-text"> 单细胞多组学技术实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-text"> 理论分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text"> 知识点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-text"> 配对数据分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E9%87%8D%E7%82%B9"><span class="toc-text"> 非配对数据分析方法（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A5%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95"><span class="toc-text"> 该领域研究进展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E6%80%9D%E8%B7%AF"><span class="toc-text"> 目前思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-text"> 流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-text"> 1️⃣数据准备</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE"><span class="toc-text"> 关键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%BD%E5%85%A5"><span class="toc-text"> 数据载入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reference"><span class="toc-text"> Reference</span></a></li></ol>
     </div>
 </aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/Done/">Done!</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/Unfinished/">Unfinished</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/new/">new!</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/Done/">Done!</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/Unfinished/">Unfinished</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/new/">new!</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/new%EF%BC%81/">new！</a><span class="category-list-count">1</span></li></ul>
   </aside>
 
 
@@ -415,7 +670,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/myblog.github.io/tags/AI/" style="font-size: 0.73em;">AI</a> <a href="/myblog.github.io/tags/Multiomics/" style="font-size: 0.67em;">Multiomics</a> <a href="/myblog.github.io/tags/Private/" style="font-size: 0.67em;">Private</a> <a href="/myblog.github.io/tags/Vim/" style="font-size: 0.6em;">Vim</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 0.6em;">hexo</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 0.6em;">kratos</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 0.6em;">scRNA-seq</a> <a href="/myblog.github.io/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" style="font-size: 0.6em;">个人笔记</a> <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 0.6em;">单细胞</a> <a href="/myblog.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 0.6em;">文献阅读</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 0.8em;">记录</a>
+        <a href="/myblog.github.io/tags/AI/" style="font-size: 0.7em;">AI</a> <a href="/myblog.github.io/tags/Multiomics/" style="font-size: 0.7em;">Multiomics</a> <a href="/myblog.github.io/tags/Private/" style="font-size: 0.7em;">Private</a> <a href="/myblog.github.io/tags/Single-cell/" style="font-size: 0.6em;">Single cell</a> <a href="/myblog.github.io/tags/Vim/" style="font-size: 0.6em;">Vim</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 0.6em;">hexo</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 0.6em;">kratos</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 0.6em;">scRNA-seq</a> <a href="/myblog.github.io/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" style="font-size: 0.6em;">个人笔记</a> <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 0.6em;">单细胞</a> <a href="/myblog.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 0.6em;">文献阅读</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 0.8em;">记录</a>
       </div>
   </aside>
 
@@ -426,6 +681,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/myblog.github.io/posts/Epigenetic-regulation/"><i class="fa fa-book"></i> Epigenetic regulation</a>
+            
+          
         
           
           
@@ -452,11 +713,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/myblog.github.io/posts/AI-Multiomics/"><i class="fa fa-book"></i> AI Multiomics</a>
             
-          
-        
           
             
           
