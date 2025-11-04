@@ -27,8 +27,10 @@
 <meta property="og:description" content="单细胞多组学技术实践 本文档主要分为实践与理论两个部分，在实践部分会post上部分代码，建议阅读顺序为先理论后实践！  理论分析  知识点： Gene activity matrix：基因活性矩阵，是对 scATAC-seq 峰的计数进行总结，利用观察到的基因启动子和增强子处的reads，代表一个合成的 scRNA-seq 数据集，以便用于后续整合。（间接性与细胞异质性） Multimodal">
 <meta property="og:locale">
 <meta property="og:image" content="https://hyperion1230.github.io/myblog.github.io/posts/AI-Multiomics/image-20251022132956071.png">
+<meta property="og:image" content="https://hyperion1230.github.io/myblog.github.io/posts/AI-Multiomics/41576_2023_586_Fig2_HTML.png">
+<meta property="og:image" content="https://hyperion1230.github.io/myblog.github.io/posts/AI-Multiomics/webp.webp">
 <meta property="article:published_time" content="2025-09-22T10:53:05.000Z">
-<meta property="article:modified_time" content="2025-10-22T07:14:55.299Z">
+<meta property="article:modified_time" content="2025-11-03T11:23:07.278Z">
 <meta property="article:author" content="Hammerbrother">
 <meta property="article:tag" content="Multiomics">
 <meta property="article:tag" content="Single cell">
@@ -266,7 +268,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~9.34K
+                            ~13.05K
                         
                         字
                     </li>
@@ -280,7 +282,7 @@
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.</span> <span class="toc-text"> 单细胞多组学技术实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text"> 理论分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 知识点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 配对数据分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E9%87%8D%E7%82%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 非配对数据分析方法（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A5%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 该领域研究进展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text"> 目前思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.0.1.</span> <span class="toc-text"> 流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text"> 1️⃣数据准备</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE"><span class="toc-number">1.2.0.2.</span> <span class="toc-text"> 关键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%BD%E5%85%A5"><span class="toc-number">1.2.0.3.</span> <span class="toc-text"> 数据载入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reference"><span class="toc-number">2.</span> <span class="toc-text"> Reference</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.</span> <span class="toc-text"> 单细胞多组学技术实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text"> 理论分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 知识点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 配对数据分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E9%87%8D%E7%82%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 非配对数据分析方法（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A5%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 该领域研究进展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text"> 目前思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9E-rna-%E6%B5%8B%E5%BA%8Fscrna-seq%E7%9A%84%E5%8D%95%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4-unimodal-analysis-steps-for-scrna-seq"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 单细胞 RNA 测序（scRNA-seq）的单模态分析步骤 unimodal analysis steps for scRNA-seq</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.1.1.</span> <span class="toc-text"> 具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#0%EF%B8%8F%E2%83%A3%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.1.1.1.</span> <span class="toc-text"> 0️⃣原始数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.2.1.1.2.</span> <span class="toc-text"> 1️⃣数据准备</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80-%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.1.1.2.1.</span> <span class="toc-text"> 一、质量控制</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C-%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E9%99%8D%E7%BB%B4"><span class="toc-number">1.2.1.1.2.2.</span> <span class="toc-text"> 二、特征选择与降维</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A"><span class="toc-number">1.2.1.1.3.</span> <span class="toc-text"> 2️⃣细胞注释</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80-%E8%81%9A%E7%B1%BB%E7%BB%86%E8%83%9E%E7%BE%A4%E4%BD%93"><span class="toc-number">1.2.1.1.3.1.</span> <span class="toc-text"> 一、聚类细胞群体</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C-%E7%BB%86%E8%83%9E%E8%BA%AB%E4%BB%BD%E6%B3%A8%E9%87%8A"><span class="toc-number">1.2.1.1.3.2.</span> <span class="toc-text"> 二、细胞身份注释</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%89-%E4%BC%AA%E6%97%B6%E5%BA%8F%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.1.3.3.</span> <span class="toc-text"> 三、伪时序分析</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3%E4%B8%8B%E6%B8%B8%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.1.4.</span> <span class="toc-text"> 3️⃣下游分析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80-%E5%B7%AE%E5%BC%82%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE"><span class="toc-number">1.2.1.1.4.1.</span> <span class="toc-text"> 一、差异基因表达</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C-%E5%9F%BA%E5%9B%A0%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.1.4.2.</span> <span class="toc-text"> 二、基因富集分析</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%89-%E8%A7%A3%E6%9E%90%E7%BB%86%E8%83%9E%E7%BB%84%E6%88%90%E7%9A%84%E6%94%B9%E5%8F%98"><span class="toc-number">1.2.1.1.4.3.</span> <span class="toc-text"> 三、解析细胞组成的改变</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%9B-%E6%8E%A8%E6%96%AD%E6%89%B0%E5%8A%A8%E6%95%88%E5%BA%94"><span class="toc-number">1.2.1.1.4.4.</span> <span class="toc-text"> 四、推断扰动效应</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%94-%E8%B7%A8%E7%BB%86%E8%83%9E%E9%80%9A%E4%BF%A1%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.1.1.4.5.</span> <span class="toc-text"> 五、跨细胞通信事件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9Eatac%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4-scatac-seq-analysis-steps"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 单细胞ATAC测序分析步骤 scATAC-seq analysis steps</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE"><span class="toc-number">1.2.2.1.</span> <span class="toc-text"> 关键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%BD%E5%85%A5"><span class="toc-number">1.2.2.2.</span> <span class="toc-text"> 数据载入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reference"><span class="toc-number">2.</span> <span class="toc-text"> Reference</span></a></li></ol>
                 </div>
             
             <hr />
@@ -490,10 +492,14 @@
 <p><img src="/myblog.github.io/posts/AI-Multiomics/image-20251022132956071.png" alt="image-20251022132956071"></p>
 <hr>
 <h2 id="目前思路"><a class="markdownIt-Anchor" href="#目前思路"></a> 目前思路</h2>
-<h4 id="流程"><a class="markdownIt-Anchor" href="#流程"></a> 流程</h4>
+<h3 id="单细胞-rna-测序scrna-seq的单模态分析步骤-unimodal-analysis-steps-for-scrna-seq"><a class="markdownIt-Anchor" href="#单细胞-rna-测序scrna-seq的单模态分析步骤-unimodal-analysis-steps-for-scrna-seq"></a> 单细胞 RNA 测序（scRNA-seq）的单模态分析步骤 unimodal analysis steps for scRNA-seq</h3>
+<p><img src="/myblog.github.io/posts/AI-Multiomics/41576_2023_586_Fig2_HTML.png" alt="scRNA-seq分析流程"></p>
+<h4 id="具体流程"><a class="markdownIt-Anchor" href="#具体流程"></a> 具体流程</h4>
+<h5 id="0️⃣原始数据"><a class="markdownIt-Anchor" href="#0️⃣原始数据"></a> 0️⃣原始数据</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cellranger count --<span class="built_in">id</span>=SRX25579230 --fastqs=./fq --sample=SRX25579230 --transcriptome=/mnt/public5/cat/scPlantDB/wyy_sc/ref/scRNAref/Populustrichocarparef/Pop_tri --create-bam <span class="literal">true</span>  <span class="comment">#cellranger处理fq文件</span></span><br></pre></td></tr></table></figure>
 <h5 id="1️⃣数据准备"><a class="markdownIt-Anchor" href="#1️⃣数据准备"></a> 1️⃣数据准备</h5>
 <p>对于单细胞转录组（scRNA-seq）数据而言，其得到的原始数据矩阵是包含了很多系统噪音与随机性噪音的，为了减少这部分噪音对生物生物信号的掩盖，我们需要对这部分数据进行整理，主要包括以下步骤</p>
-<p>1 质量控制</p>
+<h6 id="一-质量控制"><a class="markdownIt-Anchor" href="#一-质量控制"></a> 一、质量控制</h6>
 <blockquote>
 <p>大多数分析任务假设每个液滴都含有来自完整单个细胞的 RNA。这一假设常因细胞质量差、游离 RNA 污染或捕获多个细胞而被违反。检测到的<strong>基因数量少</strong>、<strong>计数深度低</strong>以及<strong>线粒体计数比例高</strong>的细胞通常被称为<strong>低质量细胞</strong>，因为它们可能代表膜破裂的死亡细胞。</p>
 </blockquote>
@@ -513,11 +519,55 @@
 </blockquote>
 <p>因此我们需要对数据进行标准化操作，使得所有的细胞数据间能够进行比较。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
-<p>如果数据来源于多个不同的技术重复，那我们应该在分析前（对同一实验处理组内）进行去除批次效应，确保其不会影响我们观察到的生物学现象。</p>
+<p>如果数据来源于多个不同的技术重复，那我们应该在分析前（对同一实验处理组内）进行去除批次效应，确保其不会影响我们观察到的生物学现象。(可选步骤)</p>
 <blockquote>
-<p>**主成分分析(PCA)**和 Harmony等线性嵌入模型在具有明显批次结构的简单整合任务中表现出色，适用于批次校正。<strong>scANVI</strong>可以整合细胞类型标签，这有利于保留生物学变异。根据整合任务的复杂性，例如图谱整合，深度学习方法如 <strong>scANVI、scVI</strong>和 <strong>scGen</strong>以及线性嵌入模型如 <strong>Scanorama</strong>表现最佳，而<mark>对于较简单的整合任务，Harmony是首选方法。</mark></p>
+<p><strong>主成分分析(PCA)<strong>和 Harmony等线性嵌入模型在具有明显批次结构的简单整合任务中表现出色，适用于批次校正。<strong>scANVI</strong>可以整合细胞类型标签，这有利于保留生物学变异。根据整合任务的复杂性，例如</strong>图谱整合</strong>，深度学习方法如 <strong>scANVI、scVI</strong>和 <strong>scGen</strong>以及线性嵌入模型如 <strong>Scanorama</strong>表现最佳，而<mark>对于较简单的整合任务，Harmony是首选方法。</mark></p>
 </blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<p>除此之外还有例如去除细胞周期效应等影响，可以通过 Scanpy或 Seurat中的内置细胞周期标记和校正功能作为基准，这些功能将平均表达值与参考特征进行比较。随后，应用更复杂的方法，如 Tricycle，该方法将数据集映射到表示细胞周期的嵌入空间。(可选步骤)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<h6 id="二-特征选择与降维"><a class="markdownIt-Anchor" href="#二-特征选择与降维"></a> 二、特征选择与降维</h6>
+<p>对于scRNAseq数据而言，可能由于数据的特殊性，导致其矩阵维度异常的大，对于我们计算带来很大的压力，因此我们需要将矩阵缩减至具有最大信息量的特征矩阵，<strong>通过优先选择在亚群间而非亚群内发生变化的基因，来选择解释数据集生物学变异的基因，同时不影响小亚群的识别性</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<p>特征选择后，可通过主成分分析（PCA）等降维算法进一步降低数据集的维度。降维技术可用于可视化或总结底层数据拓扑结构。基于其他研究，主成分分析（PCA）可用于数据总结，而 t-SNE、UMAP 和 PHATE 则可用于 scRNA-seq 数据的更灵活可视化。</p>
+<blockquote>
+<p>值得注意的是，近期一项研究表明，仅依赖二维嵌入可能导致对细胞间关系的误判，结果不应仅基于对这些表示的视觉检查来制定，而应结合定量评估。<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41576-023-00586-w#ref-CR49">https://www.nature.com/articles/s41576-023-00586-w#ref-CR49</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<h5 id="2️⃣细胞注释"><a class="markdownIt-Anchor" href="#2️⃣细胞注释"></a> 2️⃣细胞注释</h5>
+<p>通过之前的数据处理我们已经在可信的程度上排除掉了由于非生物因素造成的干扰，接下来我们需要将不同的细胞通过其表达谱聚类为一个亚细胞群，之后再将这个群的特征映射到构建的图谱或是通过分类器进行分类到不同的确定的细胞类型，在此步骤中我们可以通过marker基因对于已知的细胞类型进行进一步的注释通过统计建议的方法（ t检验 或 Wilcoxon（推荐）），最后一步，注释应由专家进行验证，特别是对于具有高复杂性的数据集或涉及罕见细胞亚群的研究。</p>
+<h6 id="一-聚类细胞群体"><a class="markdownIt-Anchor" href="#一-聚类细胞群体"></a> 一、聚类细胞群体</h6>
+<blockquote>
+<p>核心是解析单细胞分析中“细胞群体识别”的关键第一步——细胞聚类，可从核心目标、主流算法对比及实践建议三方面简要拆解： 1. <strong>核心目标</strong>：单细胞数据存在大量细胞异质性（如不同细胞类型、状态），聚类的核心是将“表达谱相似”的细胞归为一组，用这些组别解释数据中的差异，为后续细胞身份注释（如判断是免疫细胞还是上皮细胞）打基础。 2. <strong>主流聚类算法对比</strong>：<strong>Louvain算法</strong>：通过“图模块优化”（把细胞当作图节点，相似细胞用边连接，优化模块度指标）实现聚类，经独立测试验证是此前效果较好的方法，但存在缺陷——可能生成“连接性差”的社区（即同一聚类内细胞关联性弱，不符合“相似表达谱”的核心需求）。<strong>Leiden算法</strong>：作为Louvain的改进版，解决了“差连接社区”问题（保证每个聚类内细胞连接性合理），且计算效率更高，是更优选择。 3. <strong>实践逻辑</strong>：两种算法均需基于“数据低维表示的KNN图”（先通过PCA等降维减少数据噪声，再构建K近邻图，体现细胞间相似关系）运行；可通过调整“分辨率”控制聚类数量（高分辨率会分更多细小组别，低分辨率则合并为少数大组）；最终推荐用Leiden算法，且在不同分辨率下运行，以找到最适合后续细胞注释的聚类结果。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<h6 id="二-细胞身份注释"><a class="markdownIt-Anchor" href="#二-细胞身份注释"></a> 二、细胞身份注释</h6>
+<p>注释可以通过手动或自动方法进行，建议采用三步法，即利用自动注释，随后进行专家手动注释，最后进行验证以获得理想的注释结果（<span class="blur">有待商榷</span>）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<h6 id="三-伪时序分析"><a class="markdownIt-Anchor" href="#三-伪时序分析"></a> 三、伪时序分析</h6>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<h5 id="3️⃣下游分析"><a class="markdownIt-Anchor" href="#3️⃣下游分析"></a> 3️⃣下游分析</h5>
+<p>此前分析多聚焦 “数据清洁”（如过滤噪声）和 “细胞身份识别”（如聚类、注释），而此时重心转向 “解释生物学问题” 不再局限于 “有哪些细胞”，而是探究 “这些细胞如何发挥功能、相互作用，或在疾病 / 发育中如何变化”。</p>
+<h6 id="一-差异基因表达"><a class="markdownIt-Anchor" href="#一-差异基因表达"></a> 一、差异基因表达</h6>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<h6 id="二-基因富集分析"><a class="markdownIt-Anchor" href="#二-基因富集分析"></a> 二、基因富集分析</h6>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TODO</span></span><br></pre></td></tr></table></figure>
+<h6 id="三-解析细胞组成的改变"><a class="markdownIt-Anchor" href="#三-解析细胞组成的改变"></a> 三、解析细胞组成的改变</h6>
+<h6 id="四-推断扰动效应"><a class="markdownIt-Anchor" href="#四-推断扰动效应"></a> 四、推断扰动效应</h6>
+<h6 id="五-跨细胞通信事件"><a class="markdownIt-Anchor" href="#五-跨细胞通信事件"></a> 五、跨细胞通信事件</h6>
+<h3 id="单细胞atac测序分析步骤-scatac-seq-analysis-steps"><a class="markdownIt-Anchor" href="#单细胞atac测序分析步骤-scatac-seq-analysis-steps"></a> 单细胞ATAC测序分析步骤 <strong>scATAC-seq analysis steps</strong></h3>
+<p>ATAC技术概览</p>
+<p><img src="/myblog.github.io/posts/AI-Multiomics/webp.webp" alt="ATAC技术"></p>
+<p>1️⃣特征定义</p>
+<p>数据特殊性，覆盖全基因组，细胞-peak形式，数据更为稀疏（稀疏矩阵），call peak需要一定数量的细胞，稀有细胞的低敏感度，cell-bin矩阵可能在rare cell上会更好</p>
+<hr>
 <h4 id="关键"><a class="markdownIt-Anchor" href="#关键"></a> 关键</h4>
+<p>上游分析：</p>
+<p>cellrangers构建参考基因组：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">cellranger mkref --genome=oryza_sativa_rna --fasta=/public/workspace/genome/oryza_sativa/fasta/oryza_sativa</span><br><span class="line">.fa --genes=/public/workspace/genome/oryza_sativa/gff/oryza_sativa.gtf  <span class="comment">#scRNAseq参考基因组构建</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gffread /public/workspace/genome/oryza_sativa/gff/oryza_sativa.gtf -T -o oryza_sativa_fix.gtf <span class="comment">#修复gtf文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#cellrangeratac的配置文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&#123;</span></span><br><span class="line"><span class="string">  organism: &quot;</span>oryza_sativa<span class="string">&quot;</span></span><br><span class="line"><span class="string">  genome: [&quot;</span>oryza_sativa_atac<span class="string">&quot;]</span></span><br><span class="line"><span class="string">  input_fasta: [&quot;</span>/public/workspace/genome/oryza_sativa/fasta/oryza_sativa.fa<span class="string">&quot;]</span></span><br><span class="line"><span class="string">  input_gtf: [&quot;</span>/mnt/public5/tangyijun/singlecell/Oryza9/workflows/cellranger/oryza_sativa_fix.gtf<span class="string">&quot;]            </span></span><br><span class="line"><span class="string">&#125;&quot;</span> &gt;&gt; cellrange_atac.txt</span><br><span class="line">cellranger-atac mkref --config=cellrange_atac.txt</span><br><span class="line"><span class="comment">#snATAC参考基因组构建</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&#123;                                                                           organism: &quot;</span>oryza_sativa<span class="string">&quot;     </span></span><br><span class="line"><span class="string">  genome: [&quot;</span>oryza_sativa_arc<span class="string">&quot;] </span></span><br><span class="line"><span class="string">  input_fasta: [&quot;</span>/public/workspace/genome/oryza_sativa/fasta/oryza_sativa.fa<span class="string">&quot;]</span></span><br><span class="line"><span class="string">  input_gtf: [&quot;</span>/mnt/public5/tangyijun/singlecell/Oryza9/workflows/cellranger/oryza_sativa_fix.gtf<span class="string">&quot;]</span></span><br><span class="line"><span class="string">&#125; &quot;</span> &gt;&gt; cellrange_arc.txt <span class="comment">#arc配置文件</span></span><br><span class="line"></span><br><span class="line">cellranger-arc mkref --conf=cellrange_arc.txt    <span class="comment">#构建ARC参考基因组</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>cellanger (or ATAC) count 命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cellranger count --id=SRR27276135 --fastqs=./fastq --sample=seedling1 --transcriptome=/mnt/public5/cat/scPlantDB/wyy_sc/ref/scRNAref/Oryza_sat/IRGSP --create-bam true --localcores=36    #水稻的参考基因组</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cellranger-atac count --id=SRX21594962 --reference=/mnt/public5/cat/scPlantDB/wyy_sc/ref/scATACref/Oryza_sat/IRGSP --fastqs ./ --sample=SRX21594962 --localcores=16</span><br></pre></td></tr></table></figure>
 <p>先尝试用</p>
 <blockquote>
 <p>A single-cell rice atlas integrates multi-species data to reveal cis-regulatory evolution</p>
@@ -569,7 +619,7 @@
                     <a class="tag-none-link" href="/myblog.github.io/tags/Multiomics/" rel="tag">Multiomics</a>, <a class="tag-none-link" href="/myblog.github.io/tags/Single-cell/" rel="tag">Single cell</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-10-22T07:14:55.299Z" itemprop="dateModified">最后编辑：2025-10-22</time>
+                    <time datetime="2025-11-03T11:23:07.278Z" itemprop="dateModified">最后编辑：2025-11-03</time>
                 </div>
             </div>
         </footer>
@@ -622,7 +672,7 @@
                 文章
             </span>
             <span class="count">
-                9
+                10
             </span>
         </a>
         <a class="meta-item" href="/myblog.github.io/categories/">
@@ -638,7 +688,7 @@
                 标签
             </span>
             <span class="count">
-                12
+                13
             </span>
         </a>
     </div>
@@ -654,14 +704,14 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="toc-text"> 单细胞多组学技术实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-text"> 理论分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text"> 知识点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-text"> 配对数据分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E9%87%8D%E7%82%B9"><span class="toc-text"> 非配对数据分析方法（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A5%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95"><span class="toc-text"> 该领域研究进展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E6%80%9D%E8%B7%AF"><span class="toc-text"> 目前思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-text"> 流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-text"> 1️⃣数据准备</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE"><span class="toc-text"> 关键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%BD%E5%85%A5"><span class="toc-text"> 数据载入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reference"><span class="toc-text"> Reference</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="toc-text"> 单细胞多组学技术实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-text"> 理论分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text"> 知识点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-text"> 配对数据分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%85%8D%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E9%87%8D%E7%82%B9"><span class="toc-text"> 非配对数据分析方法（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A5%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95"><span class="toc-text"> 该领域研究进展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E6%80%9D%E8%B7%AF"><span class="toc-text"> 目前思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9E-rna-%E6%B5%8B%E5%BA%8Fscrna-seq%E7%9A%84%E5%8D%95%E6%A8%A1%E6%80%81%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4-unimodal-analysis-steps-for-scrna-seq"><span class="toc-text"> 单细胞 RNA 测序（scRNA-seq）的单模态分析步骤 unimodal analysis steps for scRNA-seq</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text"> 具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#0%EF%B8%8F%E2%83%A3%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE"><span class="toc-text"> 0️⃣原始数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-text"> 1️⃣数据准备</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80-%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-text"> 一、质量控制</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C-%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E9%99%8D%E7%BB%B4"><span class="toc-text"> 二、特征选择与降维</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3%E7%BB%86%E8%83%9E%E6%B3%A8%E9%87%8A"><span class="toc-text"> 2️⃣细胞注释</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80-%E8%81%9A%E7%B1%BB%E7%BB%86%E8%83%9E%E7%BE%A4%E4%BD%93"><span class="toc-text"> 一、聚类细胞群体</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C-%E7%BB%86%E8%83%9E%E8%BA%AB%E4%BB%BD%E6%B3%A8%E9%87%8A"><span class="toc-text"> 二、细胞身份注释</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%89-%E4%BC%AA%E6%97%B6%E5%BA%8F%E5%88%86%E6%9E%90"><span class="toc-text"> 三、伪时序分析</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3%E4%B8%8B%E6%B8%B8%E5%88%86%E6%9E%90"><span class="toc-text"> 3️⃣下游分析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%80-%E5%B7%AE%E5%BC%82%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE"><span class="toc-text"> 一、差异基因表达</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%8C-%E5%9F%BA%E5%9B%A0%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90"><span class="toc-text"> 二、基因富集分析</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%89-%E8%A7%A3%E6%9E%90%E7%BB%86%E8%83%9E%E7%BB%84%E6%88%90%E7%9A%84%E6%94%B9%E5%8F%98"><span class="toc-text"> 三、解析细胞组成的改变</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9B%9B-%E6%8E%A8%E6%96%AD%E6%89%B0%E5%8A%A8%E6%95%88%E5%BA%94"><span class="toc-text"> 四、推断扰动效应</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%94-%E8%B7%A8%E7%BB%86%E8%83%9E%E9%80%9A%E4%BF%A1%E4%BA%8B%E4%BB%B6"><span class="toc-text"> 五、跨细胞通信事件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E7%BB%86%E8%83%9Eatac%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4-scatac-seq-analysis-steps"><span class="toc-text"> 单细胞ATAC测序分析步骤 scATAC-seq analysis steps</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE"><span class="toc-text"> 关键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%BD%E5%85%A5"><span class="toc-text"> 数据载入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reference"><span class="toc-text"> Reference</span></a></li></ol>
     </div>
 </aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/Done/">Done!</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/Unfinished/">Unfinished</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/new/">new!</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/new%EF%BC%81/">new！</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/Done/">Done!</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/Unfinished/">Unfinished</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/new/">new!</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/myblog.github.io/categories/new%EF%BC%81/">new！</a><span class="category-list-count">2</span></li></ul>
   </aside>
 
 
@@ -670,7 +720,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/myblog.github.io/tags/AI/" style="font-size: 0.7em;">AI</a> <a href="/myblog.github.io/tags/Multiomics/" style="font-size: 0.7em;">Multiomics</a> <a href="/myblog.github.io/tags/Private/" style="font-size: 0.7em;">Private</a> <a href="/myblog.github.io/tags/Single-cell/" style="font-size: 0.6em;">Single cell</a> <a href="/myblog.github.io/tags/Vim/" style="font-size: 0.6em;">Vim</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 0.6em;">hexo</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 0.6em;">kratos</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 0.6em;">scRNA-seq</a> <a href="/myblog.github.io/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" style="font-size: 0.6em;">个人笔记</a> <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 0.6em;">单细胞</a> <a href="/myblog.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 0.6em;">文献阅读</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 0.8em;">记录</a>
+        <a href="/myblog.github.io/tags/AI/" style="font-size: 0.7em;">AI</a> <a href="/myblog.github.io/tags/GRN/" style="font-size: 0.6em;">GRN</a> <a href="/myblog.github.io/tags/Multiomics/" style="font-size: 0.7em;">Multiomics</a> <a href="/myblog.github.io/tags/Private/" style="font-size: 0.7em;">Private</a> <a href="/myblog.github.io/tags/Single-cell/" style="font-size: 0.6em;">Single cell</a> <a href="/myblog.github.io/tags/Vim/" style="font-size: 0.6em;">Vim</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 0.6em;">hexo</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 0.6em;">kratos</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 0.6em;">scRNA-seq</a> <a href="/myblog.github.io/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" style="font-size: 0.6em;">个人笔记</a> <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 0.6em;">单细胞</a> <a href="/myblog.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 0.6em;">文献阅读</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 0.8em;">记录</a>
       </div>
   </aside>
 
@@ -681,6 +731,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/myblog.github.io/posts/meta-analysis/"><i class="fa fa-book"></i> meta analysis</a>
+            
+          
         
           
           
@@ -707,11 +763,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/myblog.github.io/posts/Artificial-intelligence-for-multimodal-data-integration-in-oncology-%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><i class="fa fa-book"></i> Artificial intelligence for multimodal data integration in oncology 文献阅读</a>
             
-          
-        
           
             
           
