@@ -273,6 +273,8 @@ ATAC技术概览
 
 数据特殊性，覆盖全基因组，细胞-peak形式，数据更为稀疏（稀疏矩阵），call peak需要一定数量的细胞，稀有细胞的低敏感度，cell-bin矩阵可能在rare cell上会更好
 
+## 配对数据peak to gene关联分析
+
 
 
 
@@ -309,6 +311,11 @@ echo "{
 cellranger-atac mkref --config=cellrange_atac.txt
 #snATAC参考基因组构建
 
+##适配snapatac2的修复
+zcat fragments.tsv.gz | awk -F'\t' 'BEGIN{OFS="\t"}{print $1,$2,$3,$4,$5}' | bgzip > fragments_fixed.tsv.gz
+tabix -p bed fragments_fixed.tsv.gz
+
+
 echo "{                                                                           organism: "oryza_sativa"     
   genome: ["oryza_sativa_arc"] 
   input_fasta: ["/public/workspace/genome/oryza_sativa/fasta/oryza_sativa.fa"]
@@ -317,10 +324,21 @@ echo "{                                                                         
 
 cellranger-arc mkref --conf=cellrange_arc.txt    #构建ARC参考基因组
 
+cellranger-arc count --id=xxxxx --reference=/mnt/public5/tangyijun/singlecell/Oryza9/workflows/cellranger/ref/oryza_sativa_arc --libraries=leaf_lib.csv --create-bam=false --localcores=16   
+
+rename C_S1 C_Rep1_S1   #名字修复
 
 
+```
 
+10X测序提取sra的使用的参数
 
+```bash
+fastq-dump --split-files
+
+fasterq-dump --split-files --include-technical
+
+parallel-fastq-dump --split-files
 ```
 
 
@@ -333,6 +351,12 @@ cellranger count --id=SRR27276135 --fastqs=./fastq --sample=seedling1 --transcri
 
 ```shell
 cellranger-atac count --id=SRX21594962 --reference=/mnt/public5/cat/scPlantDB/wyy_sc/ref/scATACref/Oryza_sat/IRGSP --fastqs ./ --sample=SRX21594962 --localcores=16
+```
+
+cellranger-arc aggr命令
+
+```bash
+cellranger-arc aggr --id=merge_sampel --csv /mnt/public5/tangyijun/P9/aggr --normalize=depth --reference=/mnt/public5/tangyijun/singlecell/Oryza9/workflows/cellranger/ref/oryza_sativa_arc --localcores 24
 ```
 
 
