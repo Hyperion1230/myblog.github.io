@@ -384,3 +384,132 @@ html {
 #kr-back2top:hover {
   background: var(--accent-hover);
 }
+
+/* ==================== 炫酷特效 ==================== */
+
+/* 页面背景极光渐变（缓慢流动） */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(120deg,
+    rgba(16, 185, 129, 0.10),
+    rgba(20, 184, 166, 0.06) 35%,
+    rgba(5, 150, 105, 0.05) 65%,
+    rgba(16, 185, 129, 0.10));
+  background-size: 300% 300%;
+  animation: krAurora 20s ease-in-out infinite;
+}
+
+@keyframes krAurora {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 卡片霓虹发光 hover */
+#kratos-blog-post .row article,
+#kratos-widget-area .widget {
+  position: relative;
+}
+
+#kratos-blog-post .row article:hover,
+#kratos-widget-area .widget:hover {
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.30),
+              0 0 26px rgba(16, 185, 129, 0.22),
+              0 16px 40px rgba(0, 0, 0, 0.14);
+}
+
+/* 卡片淡入上移入场动画 */
+@keyframes krFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#kratos-blog-post .row article {
+  animation: krFadeUp 0.5s ease backwards;
+}
+#kratos-blog-post .row article:nth-child(2) { animation-delay: 0.06s; }
+#kratos-blog-post .row article:nth-child(3) { animation-delay: 0.12s; }
+#kratos-blog-post .row article:nth-child(4) { animation-delay: 0.18s; }
+#kratos-blog-post .row article:nth-child(5) { animation-delay: 0.24s; }
+#kratos-blog-post .row article:nth-child(6) { animation-delay: 0.30s; }
+
+/* 导航菜单滑动下划线 */
+#kratos-menu-wrap .sf-menu > li > a {
+  position: relative;
+}
+#kratos-menu-wrap .sf-menu > li > a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #34d399, #6ee7b7);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+#kratos-menu-wrap .sf-menu > li > a:hover::after,
+#kratos-menu-wrap .sf-menu > li.current > a::after {
+  width: 60%;
+}
+
+/* 正文链接渐变下划线扫过 */
+.kratos-entry-content a {
+  background-image: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  transition: background-size 0.3s ease, color 0.2s ease;
+}
+.kratos-entry-content a:hover {
+  background-size: 100% 2px;
+}
+
+/* 标题渐变流光 */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .kratos-entry-title,
+  .kratos-entry-title strong,
+  #kratos-widget-area .widget > .widget-title {
+    background: linear-gradient(90deg, #10b981, #14b8a6, #34d399, #10b981);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: krShine 8s linear infinite;
+  }
+}
+
+@keyframes krShine {
+  to { background-position: 300% center; }
+}
+
+/* 鼠标跟随光晕 */
+#kr-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 340px;
+  margin: -170px 0 0 -170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.16), transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+/* 尊重系统「减少动态」偏好 */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  #kratos-blog-post .row article,
+  .kratos-entry-title,
+  .kratos-entry-title strong,
+  #kratos-widget-area .widget > .widget-title {
+    animation: none !important;
+  }
+}
