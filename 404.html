@@ -333,7 +333,7 @@
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 Hammerbrother的博客 版权所有.</li>
+                            <li>&copy; 2026 Hammerbrother的博客 版权所有.</li>
                             <li>本站已运行<span id="kr-since">Loading...</span></li>
                         </div>
                         <div>
@@ -464,6 +464,23 @@
                     })();
                     </script>
 <meting-js server="netease" type="playlist" id="12511958644" fixed="true" order="random"></meting-js>
+<script>
+(function () {
+  if (document.getElementById('kr-back2top')) return;
+  var btn = document.createElement('button');
+  btn.id = 'kr-back2top';
+  btn.setAttribute('aria-label', '回到顶部');
+  btn.innerHTML = '&#8593;';
+  document.body.appendChild(btn);
+  function toggle() {
+    if (window.scrollY > 300) { btn.classList.add('show'); }
+    else { btn.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  toggle();
+})();
+</script>
                         
 
 

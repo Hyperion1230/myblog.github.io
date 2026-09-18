@@ -425,7 +425,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
                 文章
             </span>
             <span class="count">
-                11
+                12
             </span>
         </a>
         <a class="meta-item" href="/myblog.github.io/categories/">
@@ -487,6 +487,12 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
         
           
           
+            <a class="list-group-item" href="/myblog.github.io/posts/%E7%A0%94%E7%A9%B6%E5%A4%A7%E7%BA%B2/"><i class="fa fa-book"></i> 研究大纲</a>
+            
+          
+        
+          
+          
             <a class="list-group-item" href="/myblog.github.io/posts/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/"><i class="fa fa-book"></i> 文献阅读记录</a>
             
           
@@ -510,11 +516,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
           
         
           
-          
-            <a class="list-group-item" href="/myblog.github.io/posts/Vim%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE/"><i class="fa fa-book"></i> Vim美化配置</a>
             
-          
-        
           
             
           
@@ -570,7 +572,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 Hammerbrother的博客 版权所有.</li>
+                            <li>&copy; 2026 Hammerbrother的博客 版权所有.</li>
                             <li>本站已运行<span id="kr-since">Loading...</span></li>
                         </div>
                         <div>
@@ -701,6 +703,23 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
                     })();
                     </script>
 <meting-js server="netease" type="playlist" id="12511958644" fixed="true" order="random"></meting-js>
+<script>
+(function () {
+  if (document.getElementById('kr-back2top')) return;
+  var btn = document.createElement('button');
+  btn.id = 'kr-back2top';
+  btn.setAttribute('aria-label', '回到顶部');
+  btn.innerHTML = '&#8593;';
+  document.body.appendChild(btn);
+  function toggle() {
+    if (window.scrollY > 300) { btn.classList.add('show'); }
+    else { btn.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  toggle();
+})();
+</script>
                         
 
 

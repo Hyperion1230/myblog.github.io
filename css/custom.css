@@ -1,9 +1,15 @@
 /* ==================== 导航栏样式 ==================== */
-/* 修改导航栏背景色 */
+/* 清爽绿 · 玻璃拟态导航栏 */
 .kratos-topnav {
-  background: #085c0999 !important;
-  justify-content: center;
-  height: 80px;
+  height: 64px;
+  background: rgba(6, 95, 70, 0.8) !important;
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  backdrop-filter: saturate(140%) blur(14px);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+}
+
+[data-theme="dark"] .kratos-topnav {
+  background: rgba(4, 47, 36, 0.82) !important;
 }
 
 /* 菜单居中显示 */
@@ -12,31 +18,64 @@
   justify-content: center;
 }
 
-/* 调整导航字体大小和间距 */
+/* 导航菜单项 */
 #kratos-menu-wrap .sf-menu a {
+  color: rgba(255, 255, 255, 0.92);
+  margin: 10px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+#kratos-menu-wrap .sf-menu a:hover,
+#kratos-menu-wrap .sf-menu li.current a,
+#kratos-menu-wrap .sf-menu li.current-menu-item a {
   color: #ffffff;
-  /* text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000; */
-  margin: 10px 10px;
-  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.16);
 }
 
-/* 导航菜单项样式 */
-#kratos-menu-wrap .sf-menu a {
-  border: 2px solid #090909;
-  background-color: #d4d4d499;
-  border-radius: 15px;
+/* 子菜单 */
+#kratos-desktop-topnav .sf-menu > li > ul.sub-menu {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
 }
 
-/* 子菜单项文字颜色 */
-#kratos-desktop-topnav .sf-menu>li>ul.sub-menu a {
-    color: #000000;
+[data-theme="dark"] #kratos-desktop-topnav .sf-menu > li > ul.sub-menu {
+  background: rgba(31, 36, 46, 0.97);
+}
+
+#kratos-desktop-topnav .sf-menu > li > ul.sub-menu a {
+  color: #374151;
+}
+
+#kratos-desktop-topnav .sf-menu > li > ul.sub-menu a:hover {
+  color: var(--accent-hover);
+  background-color: var(--accent-soft);
+}
+
+[data-theme="dark"] #kratos-desktop-topnav .sf-menu > li > ul.sub-menu a {
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] #kratos-desktop-topnav .sf-menu > li > ul.sub-menu:before {
+  border-bottom-color: rgba(31, 36, 46, 0.97);
 }
 
 /* 标签链接样式 */
 .kratos-entry-footer .footer-tag a {
-  color: #000000;
-  background-color: #ffffff;
-  border-radius: 15px;
+  color: var(--accent-hover);
+  background-color: var(--accent-soft);
+  border-radius: 999px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.kratos-entry-footer .footer-tag a:hover {
+  color: #ffffff;
+  background-color: var(--accent);
 }
 
 /* ==================== 小部件样式 ==================== */
@@ -88,7 +127,7 @@
 /* ==================== 页面交互效果 ==================== */
 /* 向下滚动时隐藏导航栏 */
 body.scroll-down.nav-up #kratos-desktop-topnav {
-    top:-81px
+    top:-65px
 }
 
 /* ==================== APlayer 音频播放器样式 ==================== */
@@ -227,4 +266,121 @@ body.scroll-down.nav-up #kratos-desktop-topnav {
     margin: -100px 0 0;
     width: 130px;
     height: 130px;
+}
+
+/* ==================== 美化：全局配色与排版 ==================== */
+:root {
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-soft: rgba(16, 185, 129, 0.12);
+  --theme-color: #10b981;
+}
+
+[data-theme="dark"] {
+  --accent: #34d399;
+  --accent-hover: #6ee7b7;
+  --accent-soft: rgba(52, 211, 153, 0.14);
+  --theme-color: #34d399;
+}
+
+/* 全局字体与渲染 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 文本选中 */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 全局滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-soft);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* 卡片阴影与悬浮抬升 */
+#kratos-blog-post .row article,
+.kratos-hentry,
+#kratos-widget-area .widget {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#kratos-blog-post .row article:hover,
+#kratos-widget-area .widget:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+}
+
+/* 正文链接强调色 */
+.kratos-entry-content a {
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+.kratos-entry-content a:hover {
+  color: var(--accent-hover);
+}
+
+/* 正文图片圆角与悬浮缩放 */
+.kratos-entry-content img {
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.kratos-entry-content img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 返回顶部按钮 */
+#kr-back2top {
+  position: fixed;
+  right: 24px;
+  bottom: 96px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  z-index: 999;
+}
+
+#kr-back2top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#kr-back2top:hover {
+  background: var(--accent-hover);
 }
