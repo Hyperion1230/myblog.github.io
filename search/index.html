@@ -330,10 +330,10 @@
 <div id="kr-search-results">
     <div class="kratos-hentry kratos-page-inner clearfix">
         <div class="kratos-page-content kr-search-result">
-            <p>搜索多个关键词时请用空格分割，例如「AI 记录 文献阅读」这样；</p>
+            <p>搜索多个关键词时请用空格分割，例如「Multiomics Single cell AI」这样；</p>
             <p>您也可以使用这些标签进行搜索</p>
             <p class="search-demo-tags">
-                <a href="/myblog.github.io/tags/AI/" style="font-size: 20px; color: #9ba1ac">AI</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 24px; color: #6c7588">记录</a> <a href="/myblog.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 18px; color: #b2b7be">文献阅读</a> <a href="/myblog.github.io/tags/Multiomics/" style="font-size: 20px; color: #9ba1ac">Multiomics</a> <a href="/myblog.github.io/tags/Single-cell/" style="font-size: 18px; color: #b2b7be">Single cell</a> <a href="/myblog.github.io/tags/Vim/" style="font-size: 18px; color: #b2b7be">Vim</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 18px; color: #b2b7be">hexo</a> <a href="/myblog.github.io/tags/GRN/" style="font-size: 18px; color: #b2b7be">GRN</a> <a href="/myblog.github.io/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" style="font-size: 20px; color: #9ba1ac">个人笔记</a> <a href="/myblog.github.io/tags/Private/" style="font-size: 22px; color: #838b9a">Private</a> <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 18px; color: #b2b7be">单细胞</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 18px; color: #b2b7be">scRNA-seq</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 18px; color: #b2b7be">kratos</a>
+                <a href="/myblog.github.io/tags/Multiomics/" style="font-size: 20px; color: #9ba1ac">Multiomics</a> <a href="/myblog.github.io/tags/Single-cell/" style="font-size: 18px; color: #b2b7be">Single cell</a> <a href="/myblog.github.io/tags/AI/" style="font-size: 20px; color: #9ba1ac">AI</a> <a href="/myblog.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" style="font-size: 18px; color: #b2b7be">文献阅读</a> <a href="/myblog.github.io/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 24px; color: #6c7588">记录</a> <a href="/myblog.github.io/tags/Vim/" style="font-size: 18px; color: #b2b7be">Vim</a> <a href="/myblog.github.io/tags/hexo/" style="font-size: 18px; color: #b2b7be">hexo</a> <a href="/myblog.github.io/tags/GRN/" style="font-size: 18px; color: #b2b7be">GRN</a> <a href="/myblog.github.io/tags/%E5%8D%95%E7%BB%86%E8%83%9E/" style="font-size: 18px; color: #b2b7be">单细胞</a> <a href="/myblog.github.io/tags/scRNA-seq/" style="font-size: 18px; color: #b2b7be">scRNA-seq</a> <a href="/myblog.github.io/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" style="font-size: 20px; color: #9ba1ac">个人笔记</a> <a href="/myblog.github.io/tags/Private/" style="font-size: 22px; color: #838b9a">Private</a> <a href="/myblog.github.io/tags/kratos/" style="font-size: 18px; color: #b2b7be">kratos</a>
             </p>
         </div>
     </div>
@@ -687,6 +687,34 @@
   window.addEventListener('scroll', toggle, { passive: true });
   btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   toggle();
+})();
+</script>
+<script>
+(function () {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (document.getElementById('kr-cursor-glow')) return;
+  var glow = document.createElement('div');
+  glow.id = 'kr-cursor-glow';
+  glow.style.opacity = '0';
+  document.body.appendChild(glow);
+  var x = -1000, y = -1000, tx = -1000, ty = -1000, raf = null, shown = false;
+  function update() {
+    x += (tx - x) * 0.12;
+    y += (ty - y) * 0.12;
+    glow.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    if (Math.abs(tx - x) > 0.5 || Math.abs(ty - y) > 0.5) {
+      raf = requestAnimationFrame(update);
+    } else {
+      raf = null;
+    }
+  }
+  window.addEventListener('mousemove', function (e) {
+    if (!shown) { shown = true; glow.style.opacity = '1'; }
+    tx = e.clientX; ty = e.clientY;
+    if (!raf) raf = requestAnimationFrame(update);
+  }, { passive: true });
+  document.addEventListener('mouseleave', function () { glow.style.opacity = '0'; });
+  document.addEventListener('mouseenter', function () { if (shown) glow.style.opacity = '1'; });
 })();
 </script>
                         
